@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 4aeeb4134a7a5a844bb899efd3e39ca3, type: 3}
+    - {fileID: 2800000, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
+    - {fileID: 2800000, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4aeeb4134a7a5a844bb899efd3e39ca3, type: 3}
+  - {fileID: 3439882262869340245, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
+  - {fileID: -7347277767829423379, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
+  - {fileID: -2561238907299680598, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
+  - {fileID: 6956725605999289468, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: 1275625909621640723, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: -8155179776209601898, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: -5700451112235475842, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: -6027746706676494012, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: 8811831953825577259, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: 5832171855535021699, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: -448948775454354536, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: 1329915113816845207, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: -3185777907216620351, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: 6341618454449772864, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  - {fileID: 918697833185770434, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - black
+  - pipe_2
+  - pipe_0
+  - pipe_1
+  - bricks_8
+  - bricks_9
+  - bricks_4
+  - bricks_5
+  - bricks_6
+  - bricks_7
+  - bricks_0
+  - bricks_1
+  - bricks_2
+  - bricks_3
+  - bricks_11
+  - bricks_10
+  m_RenderDataMap: {}
+  m_Tag: SpriteAtlas
+  m_IsVariant: 0
