@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float _speed = 8f;
+    [SerializeField] private PhysicsMaterial2D physicsMaterial;
     private Rigidbody2D _rb;
     private Vector3 lastVelocity;
 
@@ -25,9 +26,9 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        var _speed = lastVelocity.magnitude;
-        var _direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal);
-        _rb.velocity = _direction * Mathf.Max(_speed,0f);
-        Debug.Log("Collision");
+            var _speed = lastVelocity.magnitude;
+            var _direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal).normalized;
+            _rb.velocity = _direction * Mathf.Max(_speed, 0f);
+            Debug.Log("Collision");
     }
 }

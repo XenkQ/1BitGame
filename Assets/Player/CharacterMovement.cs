@@ -18,7 +18,6 @@ public class CharacterMovement : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        // Application.targetFrameRate = 30;
     }
 
     private void Update()

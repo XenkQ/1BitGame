@@ -7,6 +7,7 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     [SerializeField] private int _time;
+    public int Time { get { return _time; } }
     private TMP_Text _timerText;
     private bool _timeIsOn = false;
 
