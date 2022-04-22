@@ -10,6 +10,12 @@ public class Timer : MonoBehaviour
     public int Time { get { return _time; } }
     private TMP_Text _timerText;
     private bool _timeIsOn = false;
+    public int StartTime;
+
+    private void Awake()
+    {
+        StartTime = _time;
+    }
 
     private void Start()
     {
