@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        if(!_timeIsOn && _time>=0)
+        if (!_timeIsOn && _time >= 0)
         {
             StartCoroutine(TimerProcess());
         }

@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class SpawningSystem : MonoBehaviour
 {
-    [SerializeField] private Vector2[] _spawningPoints;
+    [SerializeField] private Transform[] _spawningPoints;
+    [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private Timer _timer;
     [SerializeField] private int _enemyNumberInStage;
-    private Enemy _enemyPrefab;
-    private Timer _timer = new Timer();
+    private int _spawnAfter;
+    private int _spawnAtSecond;
 
+    private void Start()
+    {
+        _spawnAtSecond = _timer.StartTime;
+        _spawnAfter = _timer.StartTime / _enemyNumberInStage;
+    }
 
     private void Update()
     {
-        if(CanSpawnEnemy())
-        { 
+        Debug.Log($"Spawn after: {_spawnAfter} | Timer {_timer.Time} | ");
+        if (CanSpawnEnemy())
+        {
             SpawnEnemy();
+            _spawnAtSecond -= _spawnAfter;
         }
     }
 
     private bool CanSpawnEnemy()
     {
-        return _timer.Time == _timer.StartTime / _enemyNumberInStage ? true : false;
+        return _timer.Time == _spawnAtSecond;
     }
 
     private void SpawnEnemy()
@@ -30,6 +39,6 @@ public class SpawningSystem : MonoBehaviour
 
     private Vector2 RandomSpawnPoint()
     {
-        return _spawningPoints[Random.Range(0, _spawningPoints.Length)];
+        return _spawningPoints[Random.Range(0, _spawningPoints.Length)].position;
     }
 }

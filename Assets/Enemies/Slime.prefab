@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8277778486821431354}
   - component: {fileID: 8277778486821431352}
   - component: {fileID: 8277778486821431358}
-  - component: {fileID: 343179946}
   - component: {fileID: 343179945}
   m_Layer: 0
   m_Name: Slime
@@ -120,22 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10000
---- !u!58 &343179946
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8277778486821431349}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.053332835}
-  serializedVersion: 2
-  m_Radius: 0.36182156
+  physicsMaterial: {fileID: 0}
 --- !u!70 &343179945
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
