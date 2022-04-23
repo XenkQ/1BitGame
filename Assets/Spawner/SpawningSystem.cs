@@ -8,21 +8,34 @@ public class SpawningSystem : MonoBehaviour
     [SerializeField] private Enemy _enemyPrefab;
     [SerializeField] private Timer _timer;
     [SerializeField] private int _enemyNumberInStage;
+    [SerializeField] private List<Enemy> enemies;
     private int _spawnAfter;
     private int _spawnAtSecond;
+    private int _currentEnemy;
 
     private void Start()
     {
+        PoolEnemies();
+        _currentEnemy = enemies.Count - 1;
         _spawnAtSecond = _timer.StartTime;
         _spawnAfter = _timer.StartTime / _enemyNumberInStage;
     }
 
+    private void PoolEnemies()
+    {
+        for (int i = 0; i < _enemyNumberInStage; i++)
+        {
+            enemies.Add(Instantiate(_enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform));
+            enemies[i].gameObject.SetActive(false);
+        }
+    }
+
     private void Update()
     {
-        Debug.Log($"Spawn after: {_spawnAfter} | Timer {_timer.Time} | ");
+        //Debug.Log($"Spawn after: {_spawnAfter} | Timer {_timer.Time}");
         if (CanSpawnEnemy())
         {
-            SpawnEnemy();
+            EnableEnemy();
             _spawnAtSecond -= _spawnAfter;
         }
     }
@@ -32,9 +45,13 @@ public class SpawningSystem : MonoBehaviour
         return _timer.Time == _spawnAtSecond;
     }
 
-    private void SpawnEnemy()
+    private void EnableEnemy()
     {
-        Instantiate(_enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform);
+        if(_currentEnemy >= 0)
+        {
+            enemies[_currentEnemy].gameObject.SetActive(true);
+            _currentEnemy--;
+        }
     }
 
     private Vector2 RandomSpawnPoint()

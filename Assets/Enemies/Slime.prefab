@@ -119,7 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10000
-  physicsMaterial: {fileID: 0}
 --- !u!70 &343179945
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
