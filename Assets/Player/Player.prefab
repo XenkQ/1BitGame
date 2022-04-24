@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6650043715491869572}
   - component: {fileID: 6650043715491869573}
   m_Layer: 0
-  m_Name: sprite
+  m_Name: CharacterSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 6650043716017773263}
   - component: {fileID: 6650043716017773248}
   - component: {fileID: 6650043716017773262}
+  - component: {fileID: 987987725}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -152,7 +153,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 6650043716017773250}
   m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -181,4 +182,27 @@ MonoBehaviour:
   - {fileID: -8401692288953904933, guid: 9c897916fcb1eae4a8bf81dfbb0c2544, type: 3}
   _playerDeafultSprite: {fileID: 7152930139536384079, guid: 9c897916fcb1eae4a8bf81dfbb0c2544, type: 3}
   _animationSpeed: 0.2
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 8
+  rightTransform: {fileID: 0}
   _playerSprite: {fileID: 6650043715491869573}
+--- !u!95 &987987725
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650043716017773250}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4740eb30c651b1b4489e3d18549bc3d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
