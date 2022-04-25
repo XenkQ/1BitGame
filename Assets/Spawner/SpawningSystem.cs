@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class SpawningSystem : MonoBehaviour
 {
-    [SerializeField] private Transform[] _spawningPoints;
+    [Header("Prefabs")]
     [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private Timer _timer;
-    [SerializeField] private int _enemyNumberInStage;
-    [SerializeField] private List<Enemy> enemies;
+
+    [Header("Spawning Properites")]
+    [SerializeField] private Transform[] _spawningPoints;
     private int _spawnAfter;
     private int _spawnAtSecond;
     private int _currentEnemy;
 
+    [Header("Stage Properites")]
+    [SerializeField] private int _enemyNumberInStage;
+
+    [Header("Other Scripts")]
+    [SerializeField] private Timer _timer;
+
+    [Header("Spawned Enemies")]
+    [SerializeField] private List<Enemy> _enemies;
+
     private void Start()
     {
         PoolEnemies();
-        _currentEnemy = enemies.Count - 1;
+        _currentEnemy = _enemies.Count - 1;
         _spawnAtSecond = _timer.StartTime;
         _spawnAfter = _timer.StartTime / _enemyNumberInStage;
     }
@@ -25,14 +34,13 @@ public class SpawningSystem : MonoBehaviour
     {
         for (int i = 0; i < _enemyNumberInStage; i++)
         {
-            enemies.Add(Instantiate(_enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform));
-            enemies[i].gameObject.SetActive(false);
+            _enemies.Add(Instantiate(_enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform));
+            _enemies[i].gameObject.SetActive(false);
         }
     }
 
     private void Update()
     {
-        //Debug.Log($"Spawn after: {_spawnAfter} | Timer {_timer.Time}");
         if (CanSpawnEnemy())
         {
             EnableEnemy();
@@ -49,7 +57,7 @@ public class SpawningSystem : MonoBehaviour
     {
         if(_currentEnemy >= 0)
         {
-            enemies[_currentEnemy].gameObject.SetActive(true);
+            _enemies[_currentEnemy].gameObject.SetActive(true);
             _currentEnemy--;
         }
     }

@@ -100,8 +100,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_GravityScale: 0.5
+  m_Material: {fileID: 6200000, guid: 7337eedcd79307345ac3f020b10e6d79, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -119,6 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10000
+  _timer: {fileID: 0}
+  _particleEffect: {fileID: 6978373443130076321, guid: adbe175a1eca8444cae604bee59123a8, type: 3}
 --- !u!70 &343179945
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

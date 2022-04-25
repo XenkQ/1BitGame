@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254122146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 4.44, z: 0}
+  m_LocalPosition: {x: 4.5, y: 4.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 336951672}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089374748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.44, z: 0}
+  m_LocalPosition: {x: 0, y: 4.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 336951672}
@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616791207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.75, y: 4.44, z: 0}
+  m_LocalPosition: {x: -4.75, y: 4.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 336951672}
@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5884849006405421643}
   - component: {fileID: 6998650504634865335}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6776829100502637747}
   - component: {fileID: 2537590909029132110}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6142705420094243873}
   - component: {fileID: 3135738227273375497}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PipeLeft
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 2647200194180730225}
   m_Layer: 0
   m_Name: WallColiders
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11538,6 +11538,7 @@ Transform:
   - {fileID: 336951672}
   - {fileID: 2897464478628648003}
   - {fileID: 2647200193964885506}
+  - {fileID: 1076264419335476066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11596,7 +11597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4333782177681477135}
   - component: {fileID: 3674569408564158877}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11686,14 +11687,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706db0d988ffbf040adf438b90a1651b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 8277778486821431358, guid: 78bba2568d6f72f4e8c8460552d26e63, type: 3}
   _spawningPoints:
   - {fileID: 1089374749}
   - {fileID: 254122147}
   - {fileID: 1616791208}
-  _enemyPrefab: {fileID: 8277778486821431358, guid: 78bba2568d6f72f4e8c8460552d26e63, type: 3}
+  _enemyNumberInStage: 6
   _timer: {fileID: 8913031814779237326}
-  _enemyNumberInStage: 0
-  enemies: []
+  _enemies: []
+--- !u!1 &5685306017852081018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076264419335476066}
+  m_Layer: 0
+  m_Name: SpawnedVFX
+  m_TagString: VFXSpawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1076264419335476066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5685306017852081018}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2647200195307898557}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6681900913555709721
 GameObject:
   m_ObjectHideFlags: 0
@@ -11704,7 +11735,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677870982793950801}
   - component: {fileID: 3981447626194976803}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PipeRight
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11761,7 +11792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3070033916997765840}
   - component: {fileID: 6383361506818287592}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -11901,6 +11932,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4565871892228541404, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
       propertyPath: m_Name
+      value: Timer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4565871892228541404, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
+      propertyPath: m_TagString
       value: Timer
       objectReference: {fileID: 0}
     m_RemovedComponents: []

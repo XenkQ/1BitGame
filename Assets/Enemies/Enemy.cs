@@ -4,24 +4,55 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] private float _speed = 8f;
     private Rigidbody2D _rb;
     private Vector3 _lastVelocity;
 
+    [Header("Other Scripts")]
+    private Timer _timer;
+
+    [Header("VFX")]
+    [SerializeField] private GameObject _particleEffect;
+    private Transform _spawnerVFX;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+        _spawnerVFX = GameObject.FindGameObjectWithTag("VFXSpawner").transform;
     }
 
     private void OnEnable()
     {
-        //TODO: Make Velocity OnEnable Working Alike For All Enemies
         StartCoroutine(AddVelocityAtEnable());
     }
 
     private void Update()
     {
         _lastVelocity = _rb.velocity;
+        DieProcess();
+    }
+
+    private void DieProcess()
+    {
+        if (CanDie())
+        {
+            Instantiate(_particleEffect, transform.position, Quaternion.identity, _spawnerVFX);
+            Destroy(this.gameObject);
+        }
+    }
+
+    private bool CanDie()
+    {
+        if (_timer.Time <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
