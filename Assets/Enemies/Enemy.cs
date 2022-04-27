@@ -25,13 +25,22 @@ public class Enemy : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(AddVelocityAtEnable());
+        StartCoroutine(AddForceVelocity());
     }
 
     private void Update()
     {
         _lastVelocity = _rb.velocity;
+        KeepVelocity();
         DieProcess();
+    }
+
+    private void KeepVelocity()
+    {
+        if (_rb.velocity == Vector2.zero)
+        {
+            StartCoroutine(AddForceVelocity());
+        }
     }
 
     private void DieProcess()
@@ -63,7 +72,7 @@ public class Enemy : MonoBehaviour
         Debug.Log("Collision");
     }
 
-    private IEnumerator AddVelocityAtEnable()
+    private IEnumerator AddForceVelocity()
     {
         yield return new WaitForFixedUpdate();
         _rb.AddForce(_speed * Time.deltaTime * Random.insideUnitCircle.normalized);
