@@ -38,4 +38,13 @@ public class Timer : MonoBehaviour
         _time--;
         _timeIsOn = false;
     }
+
+    public bool IsEndOfTime()
+    {
+        if(_time<=0)
+        {
+            return true;
+        }
+        else { return false; }
+    }
 }

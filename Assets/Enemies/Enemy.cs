@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     private bool CanDie()
     {
-        if (_timer.Time <= 0)
+        if (_timer.IsEndOfTime())
         {
             return true;
         }

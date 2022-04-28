@@ -14,12 +14,12 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private GameObject _deafultTileMap;
     [SerializeField] private GameObject _enterTileMap;
 
-    [Header("Colliders")]
-    [SerializeField] private BoxCollider2D _nextLvlCollider;
+    [Header("Colliders Objects")]
+    [SerializeField] private GameObject _nextLvlCollider;
 
     private void Update()
     {
-        if(_timer.Time <= 0)
+        if(_timer.IsEndOfTime())
         {
             _exitTileMap.SetActive(true);
             _deafultTileMap.SetActive(false);
@@ -30,9 +30,9 @@ public class LvlMenager : MonoBehaviour
 
     public void LoadNextLvl()
     {
-        _nextLvlCollider.enabled = true;
         _exitTileMap.SetActive(false);
         _enterTileMap.SetActive(true);
+        _nextLvlCollider.SetActive(true);
         _lvlCounter.increaseLvlNumber();
     }
 }

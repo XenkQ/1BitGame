@@ -266,7 +266,7 @@ MonoBehaviour:
   _exitTileMap: {fileID: 2647200195053064308}
   _deafultTileMap: {fileID: 2647200195053064309}
   _enterTileMap: {fileID: 195589081}
-  _nextLvlCollider: {fileID: 2091774642}
+  _nextLvlCollider: {fileID: 1219446270}
 --- !u!4 &860748900
 Transform:
   m_ObjectHideFlags: 0
@@ -292,6 +292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0818a370721456846a14a15c8c5dd6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1219446270 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5121868968128949050, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!213 &1478331682
 Sprite:
   m_ObjectHideFlags: 0
@@ -547,11 +552,6 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
---- !u!61 &2091774642 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 3586743052013530726, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2647200195053064306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -559,6 +559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1361268167514025373, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: _timer
+      value: 
+      objectReference: {fileID: 2647200195053064307}
     - target: {fileID: 1361268167514025373, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: _characterMovement
       value: 
@@ -621,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3586743052013530726, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5121868968128949050, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_IsActive
