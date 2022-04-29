@@ -5,39 +5,40 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float _speed = 8f;
-    private Rigidbody2D _rb;
-    private Vector3 _lastVelocity;
+    [SerializeField] private float speed = 8f;
+    private Rigidbody2D enemyRigidBody;
+    private Vector3 lastVelocity;
 
     [Header("Other Scripts")]
-    private Timer _timer;
+    private Timer timer;
 
     [Header("VFX")]
-    [SerializeField] private GameObject _particleEffect;
-    private Transform _spawnerVFX;
+    [SerializeField] private GameObject particleEffect;
+    private Transform spawnerVFX;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
-        _spawnerVFX = GameObject.FindGameObjectWithTag("VFXSpawner").transform;
+        enemyRigidBody = GetComponent<Rigidbody2D>();
+        timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+        spawnerVFX = GameObject.FindGameObjectWithTag("VFXSpawner").transform;
     }
 
     private void OnEnable()
     {
         StartCoroutine(AddForceVelocity());
+        Debug.Log(enemyRigidBody.velocity);
     }
 
     private void Update()
     {
-        _lastVelocity = _rb.velocity;
+        lastVelocity = enemyRigidBody.velocity;
         KeepVelocity();
         DieProcess();
     }
 
     private void KeepVelocity()
     {
-        if (_rb.velocity == Vector2.zero)
+        if (enemyRigidBody.velocity == Vector2.zero)
         {
             StartCoroutine(AddForceVelocity());
         }
@@ -47,14 +48,14 @@ public class Enemy : MonoBehaviour
     {
         if (CanDie())
         {
-            Instantiate(_particleEffect, transform.position, Quaternion.identity, _spawnerVFX);
+            Instantiate(particleEffect, transform.position, Quaternion.identity, spawnerVFX);
             Destroy(this.gameObject);
         }
     }
 
     private bool CanDie()
     {
-        if (_timer.IsEndOfTime())
+        if (timer.IsEndOfTime())
         {
             return true;
         }
@@ -66,15 +67,19 @@ public class Enemy : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        var _speed = _lastVelocity.magnitude;
-        var _direction = Vector3.Reflect(_lastVelocity.normalized, other.contacts[0].normal).normalized;
-        _rb.velocity = _direction * Mathf.Max(_speed, 0f);
-        Debug.Log("Collision");
+        var speed = lastVelocity.magnitude;
+        var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal).normalized;
+        enemyRigidBody.velocity = direction * Mathf.Max(speed, 0f);
     }
 
     private IEnumerator AddForceVelocity()
     {
         yield return new WaitForFixedUpdate();
-        _rb.AddForce(_speed * Time.deltaTime * Random.insideUnitCircle.normalized);
+        AddRandomForceToRigidBody();
+    }
+
+    private void AddRandomForceToRigidBody()
+    {
+        enemyRigidBody.AddForce(speed * Time.deltaTime * Random.insideUnitCircle.normalized);
     }
 }

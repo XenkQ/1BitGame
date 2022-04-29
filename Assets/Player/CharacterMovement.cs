@@ -6,28 +6,27 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float _speed = 8f;
-    private float _horizontal;
-    private Rigidbody2D _rb;
-    private bool _canMove = true;
-    private bool _visibleByCamera = true;
+    [SerializeField] private float speed = 8f;
+    private float horizontal;
+    private Rigidbody2D playerRigidBody;
+    private bool canMove = true;
+    private bool visibleByCamera = true;
 
     [Header("Animations")]
-    private Animator _animator;
+    private Animator animator;
 
     [Header("Other Components")]
-    [SerializeField] private Camera _camera;
+    [SerializeField] private Camera mainCamera;
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        Application.targetFrameRate = 30;
+        playerRigidBody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        _horizontal = Input.GetAxisRaw("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
     }
 
     private void FixedUpdate()
@@ -37,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void MoveProcess()
     {
-        if (_canMove)
+        if (canMove)
         {
             AnimationsControl();
             MovePlayer();
@@ -46,35 +45,35 @@ public class CharacterMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        _rb.velocity = new Vector3(_horizontal * _speed, _rb.velocity.y);
+        playerRigidBody.velocity = new Vector3(horizontal * speed, playerRigidBody.velocity.y);
     }
 
     private void OnBecameInvisible()
     {
-        _visibleByCamera = false;
+        visibleByCamera = false;
     }
 
     //TODO: Make smooth movement to next lvl
     public void MovePlayerToNextLvl()
     {
-        _canMove = false;
-        _animator.SetBool("Running", true);
-        //while(_visibleByCamera)
+        canMove = false;
+        animator.SetBool("Running", true);
+        //while(visibleByCamera)
         //{
-        //    _rb.velocity = new Vector3(1 * _speed, _rb.velocity.y);
+        //    playerRigidBody.velocity = new Vector3(1 * speed, playerRigidBody.velocity.y);
         //}
-        _rb.velocity = new Vector3(1 * _speed, _rb.velocity.y);
+        playerRigidBody.velocity = new Vector3(1 * speed, playerRigidBody.velocity.y);
     }
 
     private void AnimationsControl()
     {
         if (Input.GetButton("Horizontal"))
         {
-            _animator.SetBool("Running", true);
+            animator.SetBool("Running", true);
         }
         else
         {
-            _animator.SetBool("Running", false);
+            animator.SetBool("Running", false);
         }
     }
 }

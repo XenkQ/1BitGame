@@ -5,37 +5,37 @@ using UnityEngine;
 public class SpawningSystem : MonoBehaviour
 {
     [Header("Prefabs")]
-    [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private Enemy enemyPrefab;
 
     [Header("Spawning Properites")]
-    [SerializeField] private Transform[] _spawningPoints;
-    private int _spawnAfter;
-    private int _spawnAtSecond;
-    private int _currentEnemy;
+    [SerializeField] private Transform[] spawningPoints;
+    private int spawnAfter;
+    private int spawnAtSecond;
+    private int currentEnemy;
 
     [Header("Stage Properites")]
-    [SerializeField] private int _enemyNumberInStage;
+    [SerializeField] private int enemyNumberInStage;
 
     [Header("Other Scripts")]
-    [SerializeField] private Timer _timer;
+    [SerializeField] private Timer timer;
 
     [Header("Spawned Enemies")]
-    [SerializeField] private List<Enemy> _enemies;
+    [SerializeField] private List<Enemy> enemies;
 
     private void Start()
     {
         PoolEnemies();
-        _currentEnemy = _enemies.Count - 1;
-        _spawnAtSecond = _timer.StartTime;
-        _spawnAfter = _timer.StartTime / _enemyNumberInStage;
+        currentEnemy = enemies.Count - 1;
+        spawnAtSecond = timer.StartTime;
+        spawnAfter = timer.StartTime / enemyNumberInStage;
     }
 
     private void PoolEnemies()
     {
-        for (int i = 0; i < _enemyNumberInStage; i++)
+        for (int i = 0; i < enemyNumberInStage; i++)
         {
-            _enemies.Add(Instantiate(_enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform));
-            _enemies[i].gameObject.SetActive(false);
+            enemies.Add(Instantiate(enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform));
+            enemies[i].gameObject.SetActive(false);
         }
     }
 
@@ -44,26 +44,26 @@ public class SpawningSystem : MonoBehaviour
         if (CanSpawnEnemy())
         {
             EnableEnemy();
-            _spawnAtSecond -= _spawnAfter;
+            spawnAtSecond -= spawnAfter;
         }
     }
 
     private bool CanSpawnEnemy()
     {
-        return _timer.Time == _spawnAtSecond;
+        return timer.Time == spawnAtSecond;
     }
 
     private void EnableEnemy()
     {
-        if(_currentEnemy >= 0)
+        if(currentEnemy >= 0)
         {
-            _enemies[_currentEnemy].gameObject.SetActive(true);
-            _currentEnemy--;
+            enemies[currentEnemy].gameObject.SetActive(true);
+            currentEnemy--;
         }
     }
 
     private Vector2 RandomSpawnPoint()
     {
-        return _spawningPoints[Random.Range(0, _spawningPoints.Length)].position;
+        return spawningPoints[Random.Range(0, spawningPoints.Length)].position;
     }
 }

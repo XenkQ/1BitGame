@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class NextLvlCollider : MonoBehaviour
 {
-    [SerializeField] private CharacterMovement _characterMovement;
-    [SerializeField] private Timer _timer;
+    [SerializeField] private CharacterMovement characterMovement;
+    [SerializeField] private Timer timer;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.transform.tag == "Player")
         {
-            if(_timer.IsEndOfTime())
+            if(timer.IsEndOfTime())
             {
-                _characterMovement.MovePlayerToNextLvl();
+                characterMovement.MovePlayerToNextLvl();
             }
         }
     }

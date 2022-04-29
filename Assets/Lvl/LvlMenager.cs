@@ -6,23 +6,23 @@ using UnityEngine.SceneManagement;
 public class LvlMenager : MonoBehaviour
 {
     [Header("Scripts")]
-    [SerializeField] private Timer _timer;
-    [SerializeField] private LvlCounter _lvlCounter;
+    [SerializeField] private Timer timer;
+    [SerializeField] private LvlCounter lvlCounter;
 
     [Header("TileMaps")]
-    [SerializeField] private GameObject _exitTileMap;
-    [SerializeField] private GameObject _deafultTileMap;
-    [SerializeField] private GameObject _enterTileMap;
+    [SerializeField] private GameObject exitTileMap;
+    [SerializeField] private GameObject deafultTileMap;
+    [SerializeField] private GameObject enterTileMap;
 
     [Header("Colliders Objects")]
-    [SerializeField] private GameObject _nextLvlCollider;
+    [SerializeField] private GameObject nextLvlCollider;
 
     private void Update()
     {
-        if(_timer.IsEndOfTime())
+        if(timer.IsEndOfTime())
         {
-            _exitTileMap.SetActive(true);
-            _deafultTileMap.SetActive(false);
+            exitTileMap.SetActive(true);
+            deafultTileMap.SetActive(false);
         }
     }
 
@@ -30,9 +30,9 @@ public class LvlMenager : MonoBehaviour
 
     public void LoadNextLvl()
     {
-        _exitTileMap.SetActive(false);
-        _enterTileMap.SetActive(true);
-        _nextLvlCollider.SetActive(true);
-        _lvlCounter.increaseLvlNumber();
+        exitTileMap.SetActive(false);
+        enterTileMap.SetActive(true);
+        nextLvlCollider.SetActive(true);
+        lvlCounter.increaseLvlNumber();
     }
 }

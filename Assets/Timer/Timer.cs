@@ -6,25 +6,25 @@ using TMPro;
 [RequireComponent(typeof(TMP_Text))]
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private int _time;
-    public int Time { get { return _time; } }
-    private TMP_Text _timerText;
-    private bool _timeIsOn = false;
-    public int StartTime;
+    [SerializeField] private int time;
+    public int Time { get { return time; } }
+    private TMP_Text timerText;
+    private bool timeIsOn = false;
+    [HideInInspector] public int StartTime;
 
     private void Awake()
     {
-        StartTime = _time;
+        StartTime = time;
     }
 
     private void Start()
     {
-        _timerText = GetComponent<TMP_Text>();
+        timerText = GetComponent<TMP_Text>();
     }
 
     private void Update()
     {
-        if (!_timeIsOn && _time >= 0)
+        if (!timeIsOn && time >= 0)
         {
             StartCoroutine(TimerProcess());
         }
@@ -32,16 +32,16 @@ public class Timer : MonoBehaviour
 
     private IEnumerator TimerProcess()
     {
-        _timeIsOn = true;
-        _timerText.text = _time.ToString();
+        timeIsOn = true;
+        timerText.text = time.ToString();
         yield return new WaitForSeconds(1f);
-        _time--;
-        _timeIsOn = false;
+        time--;
+        timeIsOn = false;
     }
 
     public bool IsEndOfTime()
     {
-        if(_time<=0)
+        if(time<=0)
         {
             return true;
         }

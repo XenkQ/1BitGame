@@ -5,17 +5,17 @@ using TMPro;
 
 public class LvlCounter : MonoBehaviour
 {
-    private TextMeshPro _counterText;
-    private int _lvlNumber;
+    private TextMeshPro counterText;
+    private int lvlNumber;
 
     private void Start()
     {
-        _counterText = GetComponent<TextMeshPro>();
+        counterText = GetComponent<TextMeshPro>();
     }
 
     public void increaseLvlNumber()
     {
-        _lvlNumber++;
-        _counterText.text = _lvlNumber.ToString();
+        lvlNumber++;
+        counterText.text = lvlNumber.ToString();
     }
 }
