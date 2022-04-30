@@ -50,12 +50,12 @@ public class SpawningSystem : MonoBehaviour
 
     private bool CanSpawnEnemy()
     {
-        return timer.Time == spawnAtSecond;
+        return timer.time == spawnAtSecond;
     }
 
     private void EnableEnemy()
     {
-        if(currentEnemy >= 0)
+        if (currentEnemy >= 0)
         {
             enemies[currentEnemy].gameObject.SetActive(true);
             currentEnemy--;

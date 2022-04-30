@@ -26,7 +26,6 @@ public class Enemy : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(AddForceVelocity());
-        Debug.Log(enemyRigidBody.velocity);
     }
 
     private void Update()

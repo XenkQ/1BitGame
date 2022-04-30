@@ -8,6 +8,8 @@ public class LvlMenager : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private Timer timer;
     [SerializeField] private LvlCounter lvlCounter;
+    [SerializeField] private Character character;
+    [SerializeField] private NextLvlPlayerSpawner newLvlSpawner;
 
     [Header("TileMaps")]
     [SerializeField] private GameObject exitTileMap;
@@ -19,14 +21,18 @@ public class LvlMenager : MonoBehaviour
 
     private void Update()
     {
-        if(timer.IsEndOfTime())
+        if (timer.IsEndOfTime())
         {
             exitTileMap.SetActive(true);
             deafultTileMap.SetActive(false);
+            character.MakeKinematicBodyType();
+        }
+
+        if (newLvlSpawner.PlayerOutOfLvl() && timer.timeIsSet)
+        {
+            LoadNextLvl();
         }
     }
-
-    //TODO: if player in out of camera view enter animation and load functions of new lvl
 
     public void LoadNextLvl()
     {
@@ -34,5 +40,7 @@ public class LvlMenager : MonoBehaviour
         enterTileMap.SetActive(true);
         nextLvlCollider.SetActive(true);
         lvlCounter.increaseLvlNumber();
+        character.TeleportToNewLvlPoint();
+        timer.RestartTime();
     }
 }

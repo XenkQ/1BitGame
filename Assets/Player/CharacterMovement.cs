@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Character))]
 public class CharacterMovement : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Movement Properites")]
     [SerializeField] private float speed = 8f;
     private float horizontal;
-    private Rigidbody2D playerRigidBody;
     private bool canMove = true;
     private bool visibleByCamera = true;
 
@@ -18,10 +17,13 @@ public class CharacterMovement : MonoBehaviour
     [Header("Other Components")]
     [SerializeField] private Camera mainCamera;
 
+    [Header("Other Scripts")]
+    private Character character;
+
     private void Start()
     {
-        playerRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        character = GetComponent<Character>();
     }
 
     private void Update()
@@ -39,30 +41,20 @@ public class CharacterMovement : MonoBehaviour
         if (canMove)
         {
             AnimationsControl();
-            MovePlayer();
+            MovePlayer(horizontal);
         }
     }
 
-    private void MovePlayer()
+    private void MovePlayer(float inputX)
     {
-        playerRigidBody.velocity = new Vector3(horizontal * speed, playerRigidBody.velocity.y);
+        character.characterRigidBody2D.velocity = new Vector3(inputX * speed, character.characterRigidBody2D.velocity.y);
     }
 
-    private void OnBecameInvisible()
-    {
-        visibleByCamera = false;
-    }
-
-    //TODO: Make smooth movement to next lvl
     public void MovePlayerToNextLvl()
     {
         canMove = false;
         animator.SetBool("Running", true);
-        //while(visibleByCamera)
-        //{
-        //    playerRigidBody.velocity = new Vector3(1 * speed, playerRigidBody.velocity.y);
-        //}
-        playerRigidBody.velocity = new Vector3(1 * speed, playerRigidBody.velocity.y);
+        MovePlayer(1);
     }
 
     private void AnimationsControl()

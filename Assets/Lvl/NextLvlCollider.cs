@@ -11,7 +11,7 @@ public class NextLvlCollider : MonoBehaviour
     {
         if (collision.transform.tag == "Player")
         {
-            if(timer.IsEndOfTime())
+            if (timer.IsEndOfTime())
             {
                 characterMovement.MovePlayerToNextLvl();
             }
