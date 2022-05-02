@@ -9,12 +9,9 @@ public class NextLvlCollider : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player" && timer.IsEndOfTime())
         {
-            if (timer.IsEndOfTime())
-            {
-                characterMovement.MovePlayerToNextLvl();
-            }
+            characterMovement.MovePlayerToNextLvl();
         }
     }
 }

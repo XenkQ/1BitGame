@@ -54,7 +54,16 @@ public class CharacterMovement : MonoBehaviour
     {
         canMove = false;
         animator.SetBool("Running", true);
+        character.MakeKinematicBodyType();
         MovePlayer(1);
+    }
+
+    public void ResetCharacterMovement()
+    {
+        canMove = true;
+        character.MakeDynamicBodyType();
+        animator.SetBool("Running", false);
+        MovePlayer(0);
     }
 
     private void AnimationsControl()

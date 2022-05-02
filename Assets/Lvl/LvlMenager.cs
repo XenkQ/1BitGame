@@ -9,38 +9,75 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private LvlCounter lvlCounter;
     [SerializeField] private Character character;
+    [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private NextLvlPlayerSpawner newLvlSpawner;
+    [SerializeField] private SpawningSystem spawningSystem;
+    [SerializeField] private SpawnedVFXController spawnedVFXController;
 
     [Header("TileMaps")]
     [SerializeField] private GameObject exitTileMap;
     [SerializeField] private GameObject deafultTileMap;
     [SerializeField] private GameObject enterTileMap;
 
-    [Header("Colliders Objects")]
-    [SerializeField] private GameObject nextLvlCollider;
+    [Header("Points")]
+    [SerializeField] private GameObject nextLvlStartPoint;
+
+    private void Start()
+    {
+        nextLvlStartPoint.SetActive(false);
+    }
 
     private void Update()
     {
         if (timer.IsEndOfTime())
         {
-            exitTileMap.SetActive(true);
-            deafultTileMap.SetActive(false);
-            character.MakeKinematicBodyType();
+            ExitTileMapActivationProcess();
+        }
+
+        if (newLvlSpawner.PlayerOutOfLvl())
+        {
+            timer.RestartTime();
         }
 
         if (newLvlSpawner.PlayerOutOfLvl() && timer.timeIsSet)
         {
-            LoadNextLvl();
+            MoveToNextLvlProcess();
         }
     }
 
-    public void LoadNextLvl()
+    private void ExitTileMapActivationProcess()
+    {
+        exitTileMap.SetActive(true);
+        deafultTileMap.SetActive(false);
+    }
+
+    public void MoveToNextLvlProcess()
+    {
+        EnterTileMapActivationProcess();
+        lvlCounter.increaseLvlNumber();
+        character.TeleportToNewLvlPoint();
+        spawnedVFXController.ClearAllVFXFromCurrentLvl();
+        nextLvlStartPoint.SetActive(true);
+    }
+
+    private void EnterTileMapActivationProcess()
     {
         exitTileMap.SetActive(false);
         enterTileMap.SetActive(true);
-        nextLvlCollider.SetActive(true);
-        lvlCounter.increaseLvlNumber();
-        character.TeleportToNewLvlPoint();
-        timer.RestartTime();
+    }
+
+    public void StartNextLvlProcess()
+    {
+        Debug.Log("Next lvl");
+        DeafultTileMapActivationProcess();
+        characterMovement.ResetCharacterMovement();
+        nextLvlStartPoint.SetActive(false);
+        spawningSystem.OverrideSpawningSystemData();
+    }
+
+    private void DeafultTileMapActivationProcess()
+    {
+        enterTileMap.SetActive(false);
+        deafultTileMap.SetActive(true);
     }
 }

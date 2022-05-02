@@ -123,6 +123,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &66637281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 508550750, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &66637283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66637281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d569c007c6fb7b54cb47922681867fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvlMenager: {fileID: 860748899}
+  timer: {fileID: 2647200195053064307}
+  character: {fileID: 1775529104}
 --- !u!1 &166267095 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 166267095, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
@@ -255,6 +275,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &616075815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706db0d988ffbf040adf438b90a1651b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860748898
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,11 +318,14 @@ MonoBehaviour:
   timer: {fileID: 2647200195053064307}
   lvlCounter: {fileID: 1513701281}
   character: {fileID: 1775529104}
+  characterMovement: {fileID: 912483750}
   newLvlSpawner: {fileID: 166267097}
+  spawningSystem: {fileID: 616075815}
+  spawnedVFXController: {fileID: 1995694771}
   exitTileMap: {fileID: 2647200195053064308}
   deafultTileMap: {fileID: 2647200195053064309}
   enterTileMap: {fileID: 195589081}
-  nextLvlCollider: {fileID: 1219446270}
+  nextLvlStartPoint: {fileID: 66637281}
 --- !u!4 &860748900
 Transform:
   m_ObjectHideFlags: 0
@@ -317,11 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0818a370721456846a14a15c8c5dd6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1219446270 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5121868968128949050, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!213 &1478331682
 Sprite:
   m_ObjectHideFlags: 0
@@ -593,6 +622,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63ce4f304cb4e246aa9de63aa63c794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1995694769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5685306017852081018, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1995694771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995694769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8342203d6615ef94e875000df8ff225c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2647200195053064306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -600,6 +646,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508550750, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 508550750, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_Name
+      value: NextLvlStartPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 508550751, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 508550752, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: characterMovement
       value: 
@@ -616,6 +674,22 @@ PrefabInstance:
       propertyPath: m_TileSpriteArray.Array.data[1].m_Data
       value: 
       objectReference: {fileID: 1478331682}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: lvlCounter
+      value: 
+      objectReference: {fileID: 1513701281}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: numberOfEnemiesInPoll
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: maxEnemyNumberInOneLvl
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: secondWhenNextEnemyIsSpawned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2647200195307898556, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_Name
       value: Environment
@@ -664,7 +738,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5121868968128949050, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: time
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 508550752, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+    - {fileID: 508550753, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
 --- !u!114 &2647200195053064307 stripped
 MonoBehaviour:

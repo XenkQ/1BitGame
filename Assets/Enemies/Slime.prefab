@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8277778486821431352}
   - component: {fileID: 8277778486821431358}
   - component: {fileID: 343179945}
+  - component: {fileID: 1367372226066909438}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -103,8 +104,8 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &8277778486821431358
 MonoBehaviour:
@@ -119,7 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10000
-  particleEffect: {fileID: 6978373443130076321, guid: adbe175a1eca8444cae604bee59123a8, type: 3}
 --- !u!70 &343179945
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +136,16 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.93, y: 0.61}
   m_Direction: 1
+--- !u!114 &1367372226066909438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8277778486821431349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4bd3c30ac3b544db135e89d44c76da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathVFX: {fileID: 6978373443130076321, guid: adbe175a1eca8444cae604bee59123a8, type: 3}

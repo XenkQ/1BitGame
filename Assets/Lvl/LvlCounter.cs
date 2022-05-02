@@ -6,7 +6,7 @@ using TMPro;
 public class LvlCounter : MonoBehaviour
 {
     private TextMeshPro counterText;
-    private int lvlNumber;
+    public int lvlNumber = 1;
 
     private void Start()
     {

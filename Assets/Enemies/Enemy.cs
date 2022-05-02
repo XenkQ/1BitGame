@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyVFXController))]
 public class Enemy : MonoBehaviour
 {
     [Header("Movement")]
@@ -11,16 +12,13 @@ public class Enemy : MonoBehaviour
 
     [Header("Other Scripts")]
     private Timer timer;
-
-    [Header("VFX")]
-    [SerializeField] private GameObject particleEffect;
-    private Transform spawnerVFX;
+    private EnemyVFXController controllerVFX;
 
     private void Awake()
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
-        spawnerVFX = GameObject.FindGameObjectWithTag("VFXSpawner").transform;
+        controllerVFX = GetComponent<EnemyVFXController>();
     }
 
     private void OnEnable()
@@ -35,6 +33,13 @@ public class Enemy : MonoBehaviour
         DieProcess();
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        var speed = lastVelocity.magnitude;
+        var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal).normalized;
+        enemyRigidBody.velocity = direction * Mathf.Max(speed, 0f);
+    }
+
     private void KeepVelocity()
     {
         if (enemyRigidBody.velocity == Vector2.zero)
@@ -47,8 +52,8 @@ public class Enemy : MonoBehaviour
     {
         if (CanDie())
         {
-            Instantiate(particleEffect, transform.position, Quaternion.identity, spawnerVFX);
-            Destroy(this.gameObject);
+            controllerVFX.SpawnEnemyDeathEffect();
+            gameObject.SetActive(false);
         }
     }
 
@@ -64,12 +69,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        var speed = lastVelocity.magnitude;
-        var direction = Vector3.Reflect(lastVelocity.normalized, other.contacts[0].normal).normalized;
-        enemyRigidBody.velocity = direction * Mathf.Max(speed, 0f);
-    }
 
     private IEnumerator AddForceVelocity()
     {

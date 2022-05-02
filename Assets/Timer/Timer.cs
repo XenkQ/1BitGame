@@ -14,12 +14,12 @@ public class Timer : MonoBehaviour
 
     private void Awake()
     {
+        StartTime = time;
         timerText = GetComponent<TMP_Text>();
     }
 
     private void Start()
     {
-        StartTime = time;
         timeIsSet = true;
     }
 
@@ -53,5 +53,6 @@ public class Timer : MonoBehaviour
     public void RestartTime()
     {
         time = StartTime;
+        timeIsSet = true;
     }
 }

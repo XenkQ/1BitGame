@@ -9,15 +9,17 @@ public class SpawningSystem : MonoBehaviour
 
     [Header("Spawning Properites")]
     [SerializeField] private Transform[] spawningPoints;
-    private int spawnAfter;
-    private int spawnAtSecond;
-    private int currentEnemy;
+    [SerializeField] private int spawnNextEnemyAfterSeconds;
+    private int currentEnemyToActivate;
+    [SerializeField] private int secondWhenNextEnemyIsSpawned;
 
     [Header("Stage Properites")]
-    [SerializeField] private int enemyNumberInStage;
+    [SerializeField] private int maxEnemyNumberInOneLvl = 30;
+    private int maxNumberOfEnemiesInCurrentLvl;
 
     [Header("Other Scripts")]
     [SerializeField] private Timer timer;
+    [SerializeField] private LvlCounter lvlCounter;
 
     [Header("Spawned Enemies")]
     [SerializeField] private List<Enemy> enemies;
@@ -25,45 +27,65 @@ public class SpawningSystem : MonoBehaviour
     private void Start()
     {
         PoolEnemies();
-        currentEnemy = enemies.Count - 1;
-        spawnAtSecond = timer.StartTime;
-        spawnAfter = timer.StartTime / enemyNumberInStage;
-    }
-
-    private void PoolEnemies()
-    {
-        for (int i = 0; i < enemyNumberInStage; i++)
-        {
-            enemies.Add(Instantiate(enemyPrefab, RandomSpawnPoint(), Quaternion.identity, transform));
-            enemies[i].gameObject.SetActive(false);
-        }
+        OverrideSpawningSystemData();
     }
 
     private void Update()
     {
-        if (CanSpawnEnemy())
+        if (CanActivateEnemy())
         {
-            EnableEnemy();
-            spawnAtSecond -= spawnAfter;
+            ActivateEnemyProcess();
+            if(secondWhenNextEnemyIsSpawned - spawnNextEnemyAfterSeconds >= 0)
+            {
+                secondWhenNextEnemyIsSpawned -= spawnNextEnemyAfterSeconds;
+            }
         }
     }
 
-    private bool CanSpawnEnemy()
+    private void ActivateEnemyProcess()
     {
-        return timer.time == spawnAtSecond;
-    }
-
-    private void EnableEnemy()
-    {
-        if (currentEnemy >= 0)
+        if (currentEnemyToActivate >= 0)
         {
-            enemies[currentEnemy].gameObject.SetActive(true);
-            currentEnemy--;
+            enemies[currentEnemyToActivate].gameObject.SetActive(true);
+            enemies[currentEnemyToActivate].transform.position = RandomSpawnPointPosition();
+            currentEnemyToActivate--;
         }
     }
 
-    private Vector2 RandomSpawnPoint()
+    private bool CanActivateEnemy()
+    {
+        if (!timer.IsEndOfTime())
+        {
+            return timer.time <= secondWhenNextEnemyIsSpawned;
+        }
+        else { return false; }
+    }
+
+    public void OverrideSpawningSystemData()
+    {
+        AssignMaxAmmountOfEnemiesRelatedToLvlNumber();
+        currentEnemyToActivate = enemies.Count - 1;
+        maxNumberOfEnemiesInCurrentLvl = lvlCounter.lvlNumber;
+        spawnNextEnemyAfterSeconds = (int)Mathf.Ceil(timer.StartTime / maxNumberOfEnemiesInCurrentLvl);
+        secondWhenNextEnemyIsSpawned = timer.StartTime;
+    }
+
+    private void PoolEnemies()
+    {
+        for (int i = 0; i < maxEnemyNumberInOneLvl; i++)
+        {
+            enemies.Add(Instantiate(enemyPrefab, Vector2.zero, Quaternion.identity, transform));
+            enemies[i].gameObject.SetActive(false);
+        }
+    }
+
+    private Vector2 RandomSpawnPointPosition()
     {
         return spawningPoints[Random.Range(0, spawningPoints.Length)].position;
+    }
+
+    private void AssignMaxAmmountOfEnemiesRelatedToLvlNumber()
+    {
+        maxNumberOfEnemiesInCurrentLvl = lvlCounter.lvlNumber;
     }
 }
