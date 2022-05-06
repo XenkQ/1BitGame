@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyVFXController))]
 public class Enemy : MonoBehaviour
 {
     [Header("Movement")]
@@ -18,7 +17,7 @@ public class Enemy : MonoBehaviour
     {
         enemyRigidBody = GetComponent<Rigidbody2D>();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
-        controllerVFX = GetComponent<EnemyVFXController>();
+        controllerVFX = GameObject.FindGameObjectWithTag("VFXSpawner").GetComponent<EnemyVFXController>();
     }
 
     private void OnEnable()
@@ -52,7 +51,7 @@ public class Enemy : MonoBehaviour
     {
         if (CanDie())
         {
-            controllerVFX.SpawnEnemyDeathEffect();
+            controllerVFX.SpawnEnemyDeathEffect(transform.position);
             gameObject.SetActive(false);
         }
     }

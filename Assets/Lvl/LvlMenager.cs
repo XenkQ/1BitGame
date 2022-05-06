@@ -11,8 +11,8 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private Character character;
     [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private NextLvlPlayerSpawner newLvlSpawner;
-    [SerializeField] private SpawningSystem spawningSystem;
-    [SerializeField] private SpawnedVFXController spawnedVFXController;
+    [SerializeField] private EnemySpawningSystem EnemySpawningSystem;
+    [SerializeField] private EnemyVFXController enemyVFXController;
 
     [Header("TileMaps")]
     [SerializeField] private GameObject exitTileMap;
@@ -56,7 +56,7 @@ public class LvlMenager : MonoBehaviour
         EnterTileMapActivationProcess();
         lvlCounter.increaseLvlNumber();
         character.TeleportToNewLvlPoint();
-        spawnedVFXController.ClearAllVFXFromCurrentLvl();
+        enemyVFXController.RestartAllVFXProcess();
         nextLvlStartPoint.SetActive(true);
     }
 
@@ -72,7 +72,7 @@ public class LvlMenager : MonoBehaviour
         DeafultTileMapActivationProcess();
         characterMovement.ResetCharacterMovement();
         nextLvlStartPoint.SetActive(false);
-        spawningSystem.OverrideSpawningSystemData();
+        EnemySpawningSystem.OverrideSpawningSystemData();
     }
 
     private void DeafultTileMapActivationProcess()
