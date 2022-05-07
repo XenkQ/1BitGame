@@ -7,7 +7,6 @@ public class EnemyVFXController : MonoBehaviour
     [Header("Particle effects")]
     [SerializeField] private ParticleSystem deathVFX;
     [SerializeField] private List<ParticleSystem> allEnemiesDeathParticleEffectsToSpawn;
-    [SerializeField] private Timer timer;
 
     [Header("Other Scripts")]
     [SerializeField] private EnemySpawningSystem EnemySpawningSystem;

@@ -46,12 +46,19 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 4aeeb4134a7a5a844bb899efd3e39ca3, type: 3}
     - {fileID: 2800000, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
     - {fileID: 2800000, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
+    - {fileID: 2800000, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 4aeeb4134a7a5a844bb899efd3e39ca3, type: 3}
+  - {fileID: -7267179296471606425, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
+  - {fileID: 7253543037239459255, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
+  - {fileID: -5481430622688448124, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
+  - {fileID: 451421886638155887, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
+  - {fileID: 4141126762792105299, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
+  - {fileID: -5538459047035330042, guid: 40e4eb974f8f90c4c9d75bfb44a5cbfd, type: 3}
   - {fileID: 3439882262869340245, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
   - {fileID: -7347277767829423379, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
   - {fileID: -2561238907299680598, guid: 020d58c93566ac440ac458d272939fa3, type: 3}
@@ -69,6 +76,12 @@ SpriteAtlas:
   - {fileID: 918697833185770434, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
   m_PackedSpriteNamesToIndex:
   - black
+  - ladder8x8_4
+  - ladder8x8_5
+  - ladder8x8_0
+  - ladder8x8_1
+  - ladder8x8_2
+  - ladder8x8_3
   - pipe_2
   - pipe_0
   - pipe_1
