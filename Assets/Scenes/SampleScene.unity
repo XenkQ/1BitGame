@@ -144,11 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cea7c17294860a4990392a9375db272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &195589081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8945125500597164343, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +248,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &565958629 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7267590514062548493, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e7686613caff647956efbb6f9911a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860748898
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,9 +295,7 @@ MonoBehaviour:
   newLvlSpawner: {fileID: 166267097}
   EnemySpawningSystem: {fileID: 1517478679}
   enemyVFXController: {fileID: 1451606845}
-  exitTileMap: {fileID: 2647200195053064308}
-  deafultTileMap: {fileID: 2647200195053064309}
-  enterTileMap: {fileID: 195589081}
+  tileMapsMenager: {fileID: 565958629}
   nextLvlStartPoint: {fileID: 66637281}
 --- !u!4 &860748900
 Transform:
@@ -711,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 2647200194590521189, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[1].m_Data
       value: 
-      objectReference: {fileID: 1478331682}
+      objectReference: {fileID: 8811831953825577259, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
     - target: {fileID: 2647200195307898556, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_Name
       value: Environment
@@ -785,16 +789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d09707c7151bf54cac8fca56bcc35b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2647200195053064308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5236943003925396819, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2647200195053064309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2647200194590521190, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6650043716488287543
 PrefabInstance:
   m_ObjectHideFlags: 0

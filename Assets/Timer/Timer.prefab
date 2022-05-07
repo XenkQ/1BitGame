@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4565871892228541377}
+  - component: {fileID: 6940313042614599181}
   - component: {fileID: 4565871892228541406}
   - component: {fileID: 4565871892228541407}
-  - component: {fileID: 6940313042614599181}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -38,6 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 7.1295, y: 1.7824}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6940313042614599181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565871892228541404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d09707c7151bf54cac8fca56bcc35b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  StartTime: 0
+  timeIsSet: 0
 --- !u!23 &4565871892228541406
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -171,17 +186,3 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
---- !u!114 &6940313042614599181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4565871892228541404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d09707c7151bf54cac8fca56bcc35b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _time: 60
-  StartTime: 0

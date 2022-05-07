@@ -13,11 +13,7 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private NextLvlPlayerSpawner newLvlSpawner;
     [SerializeField] private EnemySpawningSystem EnemySpawningSystem;
     [SerializeField] private EnemyVFXController enemyVFXController;
-
-    [Header("TileMaps")]
-    [SerializeField] private GameObject exitTileMap;
-    [SerializeField] private GameObject deafultTileMap;
-    [SerializeField] private GameObject enterTileMap;
+    [SerializeField] private TileMapsMenager tileMapsMenager;
 
     [Header("Points")]
     [SerializeField] private GameObject nextLvlStartPoint;
@@ -29,11 +25,6 @@ public class LvlMenager : MonoBehaviour
 
     private void Update()
     {
-        if (timer.IsEndOfTime())
-        {
-            ExitTileMapActivationProcess();
-        }
-
         if (newLvlSpawner.PlayerOutOfLvl())
         {
             timer.RestartTime();
@@ -45,39 +36,21 @@ public class LvlMenager : MonoBehaviour
         }
     }
 
-    private void ExitTileMapActivationProcess()
-    {
-        exitTileMap.SetActive(true);
-        deafultTileMap.SetActive(false);
-    }
-
     public void MoveToNextLvlProcess()
     {
-        EnterTileMapActivationProcess();
+        tileMapsMenager.EnteringNewLvlTileMapActivation();
         lvlCounter.increaseLvlNumber();
         character.TeleportToNewLvlPoint();
         enemyVFXController.RestartAllVFXProcess();
         nextLvlStartPoint.SetActive(true);
-    }
-
-    private void EnterTileMapActivationProcess()
-    {
-        exitTileMap.SetActive(false);
-        enterTileMap.SetActive(true);
+        tileMapsMenager.ChangeCurrentTileMapForRandomTileMapProcess();
     }
 
     public void StartNextLvlProcess()
     {
-        Debug.Log("Next lvl");
-        DeafultTileMapActivationProcess();
+        tileMapsMenager.StartNewLvlTileMapActivation();
         characterMovement.ResetCharacterMovement();
         nextLvlStartPoint.SetActive(false);
         EnemySpawningSystem.OverrideSpawningSystemData();
-    }
-
-    private void DeafultTileMapActivationProcess()
-    {
-        enterTileMap.SetActive(false);
-        deafultTileMap.SetActive(true);
     }
 }
