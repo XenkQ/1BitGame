@@ -253,6 +253,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &603286312 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 254122147, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &662745147 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1089374749, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &860748898
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +328,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0818a370721456846a14a15c8c5dd6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &958765463 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1616791208, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1451606845 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1995694770, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
@@ -646,6 +661,30 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: spawningPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: spawningPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 662745147}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: spawningPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 603286312}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: spawningPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 958765463}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: spawningPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 958765463}
+    - target: {fileID: 2647200195053064308, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: spawningPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1555733748}
     - target: {fileID: 2647200195307898556, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_Name
       value: Environment
