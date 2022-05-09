@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &143121820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143121821}
+  m_Layer: 0
+  m_Name: SpawningPoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143121821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143121820}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.5, y: 4.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 336951672}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166267095
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254122147}
   m_Layer: 0
-  m_Name: SpawningPoint (1)
+  m_Name: SpawningPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -104,6 +134,8 @@ Transform:
   - {fileID: 1089374749}
   - {fileID: 254122147}
   - {fileID: 1616791208}
+  - {fileID: 1268333757}
+  - {fileID: 143121821}
   - {fileID: 1555733748}
   m_Father: {fileID: 2647200195307898557}
   m_RootOrder: 2
@@ -164,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1089374749}
   m_Layer: 0
-  m_Name: SpawningPoint
+  m_Name: SpawningPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -183,6 +215,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 336951672}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1268333756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268333757}
+  m_Layer: 0
+  m_Name: SpawningPoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1268333757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268333756}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.25, y: 4.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 336951672}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1555733747
 GameObject:
@@ -212,7 +274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 336951672}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1616791207
 GameObject:
@@ -224,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616791208}
   m_Layer: 0
-  m_Name: SpawningPoint (2)
+  m_Name: SpawningPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -256,9 +318,9 @@ GameObject:
   - component: {fileID: 7747062123185785203}
   - component: {fileID: 7929698535886935872}
   - component: {fileID: 7257092219671775192}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap12
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -995,9 +1057,9 @@ GameObject:
   - component: {fileID: 8700128811686540778}
   - component: {fileID: 8217170388836629045}
   - component: {fileID: 3842259863336884568}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap14
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1266,9 +1328,9 @@ GameObject:
   - component: {fileID: 2283615491374621800}
   - component: {fileID: 8368251040677189126}
   - component: {fileID: 1818380460840590798}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap8
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1734,9 +1796,9 @@ GameObject:
   - component: {fileID: 4549906017940313150}
   - component: {fileID: 2207958661700630640}
   - component: {fileID: 200955790745762022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1982,7 +2044,7 @@ GameObject:
   - component: {fileID: 2647200194590521191}
   - component: {fileID: 2647200194590521189}
   - component: {fileID: 2647200194590521188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BricksDeafult
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12550,7 +12612,7 @@ Tilemap:
   - m_RefCount: 800
     m_Data: {fileID: 21300000, guid: 4aeeb4134a7a5a844bb899efd3e39ca3, type: 3}
   - m_RefCount: 0
-    m_Data: {fileID: 0}
+    m_Data: {fileID: 8811831953825577259, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
   - m_RefCount: 69
     m_Data: {fileID: -5700451112235475842, guid: 36f7fa1cd9d8b3b4facfa9dbee231f38, type: 3}
   - m_RefCount: 71
@@ -12684,7 +12746,7 @@ GameObject:
   - component: {fileID: 2647200194989967100}
   - component: {fileID: 2647200194989967074}
   - component: {fileID: 2647200194989967101}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13281,9 +13343,9 @@ GameObject:
   - component: {fileID: 1970804920688007618}
   - component: {fileID: 2866995008059151994}
   - component: {fileID: 4793322014692732962}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap15
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13832,9 +13894,9 @@ GameObject:
   - component: {fileID: 7950874804531343183}
   - component: {fileID: 6562725110491076821}
   - component: {fileID: 5633816500770984735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap5
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14361,7 +14423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d9fda623dfd134682e1ac556f046a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlNumber: 1
+  lvlNumber: 8
 --- !u!1 &4352025963362689064
 GameObject:
   m_ObjectHideFlags: 0
@@ -14374,9 +14436,9 @@ GameObject:
   - component: {fileID: 4893504514830648280}
   - component: {fileID: 5999736344188220113}
   - component: {fileID: 5761951406345110755}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap7
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14865,9 +14927,9 @@ GameObject:
   - component: {fileID: 5369989948560974471}
   - component: {fileID: 5473253262291002762}
   - component: {fileID: 733523482223478112}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap9
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15248,9 +15310,9 @@ GameObject:
   - component: {fileID: 6980753690644022894}
   - component: {fileID: 973789820179590944}
   - component: {fileID: 8774491495717981734}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap13
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15469,9 +15531,9 @@ GameObject:
   - component: {fileID: 7693777523602082273}
   - component: {fileID: 2171390874784221656}
   - component: {fileID: 4920088946671227772}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap10
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15972,9 +16034,9 @@ GameObject:
   - component: {fileID: 4079897921602745100}
   - component: {fileID: 6768208059130346225}
   - component: {fileID: 511647682620480295}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16279,7 +16341,7 @@ GameObject:
   - component: {fileID: 6825969579815136906}
   - component: {fileID: 2512297210190354649}
   - component: {fileID: 2167099774613455151}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BricksExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26958,9 +27020,9 @@ GameObject:
   - component: {fileID: 8044276769246201667}
   - component: {fileID: 4683021128858746957}
   - component: {fileID: 6524067932468085754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap11
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27425,6 +27487,8 @@ MonoBehaviour:
   - {fileID: 1089374749}
   - {fileID: 254122147}
   - {fileID: 1616791208}
+  - {fileID: 1268333757}
+  - {fileID: 143121821}
   spawnNextEnemyAfterSeconds: 0
   secondWhenNextEnemyIsSpawned: 0
   currentEnemyToSpawn: 0
@@ -27444,9 +27508,9 @@ GameObject:
   - component: {fileID: 3756180586782053265}
   - component: {fileID: 2719013380270718324}
   - component: {fileID: 6886805284200073427}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27695,9 +27759,9 @@ GameObject:
   - component: {fileID: 2694230701027264430}
   - component: {fileID: 5643369267081042605}
   - component: {fileID: 8053758856400394915}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28105,9 +28169,9 @@ GameObject:
   - component: {fileID: 6725904937682756595}
   - component: {fileID: 6415174885478322846}
   - component: {fileID: 6410218664271996159}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap16
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28506,9 +28570,9 @@ GameObject:
   - component: {fileID: 1484189452904782335}
   - component: {fileID: 2001195447209354097}
   - component: {fileID: 6841574557888644943}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap17
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28867,9 +28931,9 @@ GameObject:
   - component: {fileID: 4746201321006912380}
   - component: {fileID: 7684120151184690079}
   - component: {fileID: 1773402264606429994}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ObstaclesTileMap6
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29194,7 +29258,7 @@ GameObject:
   - component: {fileID: 2840607104138291700}
   - component: {fileID: 3654567497322280324}
   - component: {fileID: 266674024873295053}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BrickEnter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39970,11 +40034,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
---- !u!224 &2647200193964885506 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4565871892228541377, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
-  m_PrefabInstance: {fileID: 2009030697991687619}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8913031814779237326 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6940313042614599181, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
@@ -39986,3 +40045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d09707c7151bf54cac8fca56bcc35b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &2647200193964885506 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4565871892228541377, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
+  m_PrefabInstance: {fileID: 2009030697991687619}
+  m_PrefabAsset: {fileID: 0}

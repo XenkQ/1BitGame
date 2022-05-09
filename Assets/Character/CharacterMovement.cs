@@ -9,7 +9,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float speed = 8f;
     private float horizontal;
     private bool canMove = true;
-    private bool visibleByCamera = true;
+    public bool CanMove { get; private set; } = true;
 
     [Header("Animations")]
     private Animator animator;
@@ -29,11 +29,20 @@ public class CharacterMovement : MonoBehaviour
     private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
+        MakeCanMoveOnCharacterDeath();
     }
 
     private void FixedUpdate()
     {
         MoveProcess();
+    }
+
+    private void MakeCanMoveOnCharacterDeath()
+    {
+        if (character.IsDead)
+        {
+            canMove = false;
+        }
     }
 
     private void MoveProcess()
