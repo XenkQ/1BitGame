@@ -362,6 +362,7 @@ MonoBehaviour:
   EnemySpawningSystem: {fileID: 1517478679}
   enemyVFXController: {fileID: 1451606845}
   tileMapsMenager: {fileID: 565958629}
+  gUIMenager: {fileID: 0}
   nextLvlStartPoint: {fileID: 66637281}
 --- !u!4 &860748900
 Transform:
@@ -761,6 +762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1738214587}
+  - component: {fileID: 1738214589}
   - component: {fileID: 1738214588}
   m_Layer: 0
   m_Name: GUIMenager
@@ -799,6 +801,19 @@ MonoBehaviour:
   character: {fileID: 1775529104}
   deathGUI: {fileID: 2027644672}
   timeToDeathGuiActivation: 2
+--- !u!114 &1738214589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738214586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7725728c1b66d1a45944180ccc663b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathGUIMenager: {fileID: 1738214588}
 --- !u!114 &1775529104 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6608243893937603998, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
@@ -891,10 +906,18 @@ PrefabInstance:
       propertyPath: lvlMenager
       value: 
       objectReference: {fileID: 860748899}
+    - target: {fileID: 5379778346047316373, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: lvlNumber
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7877440678572828220, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1775529104}
+    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: time
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
 --- !u!114 &2647200195053064307 stripped
@@ -1050,6 +1073,34 @@ PrefabInstance:
     - target: {fileID: 3069572461328994894, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 860748899}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGameProcess
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LvlMenager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3069572461328994895, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a64ff2318595e8843ac8efe7e64a595d, type: 3}

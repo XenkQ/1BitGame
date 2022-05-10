@@ -35,4 +35,13 @@ public class DeathGUIMenager : MonoBehaviour
             Time.timeScale = 0;
         }
     }
+
+    public void DisableDeathGUI()
+    {
+        //TODO: null object reference
+        if(deathGUI.active == true)
+        {
+            deathGUI.SetActive(false);
+        }
+    }
 }

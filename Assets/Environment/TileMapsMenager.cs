@@ -41,9 +41,21 @@ public class TileMapsMenager : MonoBehaviour
 
     private void ActivateRandomTileMap()
     {
-        GameObject tileMap = tileMaps[Random.Range(0, tileMaps.Length)];
+        GameObject tileMap = RandomTileMap();
         tileMap.SetActive(true);
         currentTileMap = tileMap;
+    }
+
+    private GameObject RandomTileMap()
+    {
+        GameObject tileMap;
+
+        do
+        {
+            tileMap = tileMaps[Random.Range(0, tileMaps.Length)];
+        } while (tileMap.Equals(currentTileMap));
+
+        return tileMap;
     }
 
     private void DisableCurrentTileMap()

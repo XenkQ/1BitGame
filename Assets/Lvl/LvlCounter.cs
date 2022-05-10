@@ -18,4 +18,10 @@ public class LvlCounter : MonoBehaviour
         lvlNumber++;
         counterText.text = lvlNumber.ToString();
     }
+
+    public void RestartLvlNumber()
+    {
+        lvlNumber = 1;
+        counterText.text = lvlNumber.ToString();
+    }
 }

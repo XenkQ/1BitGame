@@ -14,6 +14,7 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private EnemySpawningSystem EnemySpawningSystem;
     [SerializeField] private EnemyVFXController enemyVFXController;
     [SerializeField] private TileMapsMenager tileMapsMenager;
+    [SerializeField] private GUIMenager gUIMenager;
 
     [Header("Points")]
     [SerializeField] private GameObject nextLvlStartPoint;
@@ -52,5 +53,28 @@ public class LvlMenager : MonoBehaviour
         characterMovement.ResetCharacterMovement();
         nextLvlStartPoint.SetActive(false);
         EnemySpawningSystem.OverrideSpawningSystemData();
+    }
+
+    public void RestartGameProcess()
+    {
+        UnpauseGameIfPaused();
+        lvlCounter.RestartLvlNumber();
+        timer.RestartTime();
+        character.CharacterRestartProcess();
+        tileMapsMenager.ChangeCurrentTileMapForRandomTileMapProcess();
+        gUIMenager.DisableAllGUI();
+    }
+
+    private void UnpauseGameIfPaused()
+    {
+        if (Time.timeScale == 0)
+        {
+            UnpauseGame();
+        }
+    }
+
+    private void UnpauseGame()
+    {
+        Time.timeScale = 1;
     }
 }

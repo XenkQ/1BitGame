@@ -29,6 +29,14 @@ public class Character : MonoBehaviour
         CharacterDeathProcessIfIsDead();
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Enemy")
+        {
+            IsDead = true;
+        }
+    }
+
     public void MakeKinematicBodyType()
     {
         characterRigidBody2D.bodyType = RigidbodyType2D.Kinematic;
@@ -54,11 +62,10 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void CharacterRestartProcess()
     {
-        if (collision.transform.tag == "Enemy")
-        {
-            IsDead = true;
-        }
+        IsDead = false;
+        spriteRenderer.gameObject.SetActive(true);
+        MakeDynamicBodyType();
     }
 }
