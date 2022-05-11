@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class DeathGUIMenager : MonoBehaviour
 
     public void Update()
     {
+        Debug.Log(character.IsDead);
         ActiveDeathGUIIFCharacterIsDead();
         StopGameTimeAfterDeathGUIActivation();
     }
@@ -30,9 +32,16 @@ public class DeathGUIMenager : MonoBehaviour
 
     private void StopGameTimeAfterDeathGUIActivation()
     {
-        if(deathGUI.active == true && Time.timeScale != 0)
+        try
         {
-            Time.timeScale = 0;
+            if (deathGUI.active == true && Time.timeScale != 0)
+            {
+                Time.timeScale = 0;
+            }
+        }
+        catch(Exception e)
+        {
+            this.gameObject.SetActive(false);
         }
     }
 
