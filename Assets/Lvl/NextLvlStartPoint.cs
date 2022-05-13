@@ -5,7 +5,6 @@ using UnityEngine;
 public class NextLvlStartPoint : MonoBehaviour
 {
     [SerializeField] private LvlMenager lvlMenager;
-    [SerializeField] private Timer timer;
     [SerializeField] private Character character;
 
     private void FixedUpdate()

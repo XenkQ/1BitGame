@@ -7,9 +7,9 @@ public class Enemy : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float speed = 8f;
     [SerializeField] private float velocityMagnitude;
+    private float expectedEnemyRigidBodyVelocity = 6f;
     private Rigidbody2D enemyRigidBody;
     private Vector3 lastVelocity;
-    private float expectedEnemyRigidBodyVelocity = 6f;
 
     [Header("Other Scripts")]
     private Timer timer;

@@ -8,7 +8,6 @@ public class TileMapsMenager : MonoBehaviour
     [SerializeField] private GameObject exitTileMap;
     [SerializeField] private GameObject deafultTileMap;
     [SerializeField] private GameObject enterTileMap;
-
     private bool isEndOfLvlTileMap = false;
 
     [Header("Obstacle Tile Maps")]
@@ -56,6 +55,11 @@ public class TileMapsMenager : MonoBehaviour
         else { ActivateRandomTileMap(); }
     }
 
+    private void DisableCurrentTileMap()
+    {
+        currentTileMap.SetActive(false);
+    }
+
     private void ActivateRandomTileMap()
     {
         GameObject tileMap = RandomTileMap();
@@ -73,11 +77,6 @@ public class TileMapsMenager : MonoBehaviour
         } while (tileMap.Equals(currentTileMap));
 
         return tileMap;
-    }
-
-    private void DisableCurrentTileMap()
-    {
-        currentTileMap.SetActive(false);
     }
 
     public void EndOfLvlTileMapActivation()

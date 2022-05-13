@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class EnemySpawningSystem : MonoBehaviour
 {
-    [Header("Prefabs")]
+    [Header("Enemy Prefabs")]
     [SerializeField] private Enemy enemyPrefab;
 
-    [Header("Spawning Properites")]
+    [Header("Spawning")]
     [SerializeField] private Transform[] spawningPoints;
     [SerializeField] private float spawnNextEnemyAfterSeconds;
     [SerializeField] private float secondWhenNextEnemyIsSpawned;
     [SerializeField] private int currentEnemyToSpawn;
     [HideInInspector] public int CurrentEnemyToSpawn { get { return currentEnemyToSpawn; } }
 
-    [Header("Stage Properites")]
+    [Header("Stage")]
     [SerializeField] private int maxEnemyNumberInOneLvl = 30;
     [HideInInspector] public int MaxEnemyNumberInOneLvl { get { return maxEnemyNumberInOneLvl; } }
     private int maxNumberOfEnemiesInCurrentLvl;
@@ -62,14 +62,6 @@ public class EnemySpawningSystem : MonoBehaviour
         else { return false; }
     }
 
-    private void CalculateWhenNextEnemyIsSpawned()
-    {
-        if (secondWhenNextEnemyIsSpawned - spawnNextEnemyAfterSeconds >= 0)
-        {
-            secondWhenNextEnemyIsSpawned = Mathf.Round(secondWhenNextEnemyIsSpawned - spawnNextEnemyAfterSeconds);
-        }
-    }
-
     private void ActivateEnemy()
     {
         if (currentEnemyToSpawn >= 0)
@@ -88,6 +80,14 @@ public class EnemySpawningSystem : MonoBehaviour
         return spawningPoints[Random.Range(0, spawningPoints.Length)].position;
     }
 
+    private void CalculateWhenNextEnemyIsSpawned()
+    {
+        if (secondWhenNextEnemyIsSpawned - spawnNextEnemyAfterSeconds >= 0)
+        {
+            secondWhenNextEnemyIsSpawned = Mathf.Round(secondWhenNextEnemyIsSpawned - spawnNextEnemyAfterSeconds);
+        }
+    }
+
     public void OverrideSpawningSystemData()
     {
         AssignMaxAmmountOfEnemiesRelatedToLvlNumber();
@@ -98,12 +98,7 @@ public class EnemySpawningSystem : MonoBehaviour
         CalculateMinEnemyIndexInCurrentLvl();
     }
 
-    private void CalculateMinEnemyIndexInCurrentLvl()
-    {
-        minEnemyIndex = maxEnemyNumberInOneLvl - maxNumberOfEnemiesInCurrentLvl;
-    }
-
-    private void AssignMaxNumberOfEnemiesInCurrentLvlBasedOnLvlNumber()
+    private void AssignMaxAmmountOfEnemiesRelatedToLvlNumber()
     {
         maxNumberOfEnemiesInCurrentLvl = lvlCounter.LvlNumber;
     }
@@ -114,6 +109,10 @@ public class EnemySpawningSystem : MonoBehaviour
         {
             currentEnemyToSpawn = enemies.Count - 1;
         }
+    }
+    private void AssignMaxNumberOfEnemiesInCurrentLvlBasedOnLvlNumber()
+    {
+        maxNumberOfEnemiesInCurrentLvl = lvlCounter.LvlNumber;
     }
 
     private void CalculateTimeAfterNextEnemyIsSpawned()
@@ -126,6 +125,11 @@ public class EnemySpawningSystem : MonoBehaviour
         secondWhenNextEnemyIsSpawned = timer.StartTime;
     }
 
+    private void CalculateMinEnemyIndexInCurrentLvl()
+    {
+        minEnemyIndex = maxEnemyNumberInOneLvl - maxNumberOfEnemiesInCurrentLvl;
+    }
+
     private void PoolEnemies()
     {
         for (int i = 0; i < maxEnemyNumberInOneLvl; i++)
@@ -133,11 +137,6 @@ public class EnemySpawningSystem : MonoBehaviour
             enemies.Add(Instantiate(enemyPrefab, Vector2.zero, Quaternion.identity, transform));
             enemies[i].gameObject.SetActive(false);
         }
-    }
-
-    private void AssignMaxAmmountOfEnemiesRelatedToLvlNumber()
-    {
-        maxNumberOfEnemiesInCurrentLvl = lvlCounter.LvlNumber;
     }
 
     public void DisableAllEnemies()

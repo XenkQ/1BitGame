@@ -6,15 +6,15 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-    [Header("Phisic")]
+    [Header("Physics")]
     [HideInInspector] public Rigidbody2D characterRigidBody2D;
 
-    [Header("Character Spawn Properties")]
+    [Header("Character Spawn")]
     [SerializeField] private Transform newLvlSpawnPoint;
     [SerializeField] private Transform exitLvlPoint;
     [SerializeField] private float transformYOffset = -4.54f;
 
-    [Header("Character Death Properties")]
+    [Header("Character Death")]
     [SerializeField] private ParticleSystem deathParticle;
     [HideInInspector] public bool IsDead { get; private set; } = false;
 
@@ -42,16 +42,6 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void MakeKinematicBodyType()
-    {
-        characterRigidBody2D.bodyType = RigidbodyType2D.Kinematic;
-    }
-
-    public void MakeDynamicBodyType()
-    {
-        characterRigidBody2D.bodyType = RigidbodyType2D.Dynamic;
-    }
-
     public void TeleportToNewLvlPoint()
     {
         transform.position = new Vector2(newLvlSpawnPoint.position.x, transformYOffset);
@@ -67,10 +57,20 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void MakeKinematicBodyType()
+    {
+        characterRigidBody2D.bodyType = RigidbodyType2D.Kinematic;
+    }
+
     public void CharacterRestartProcess()
     {
         IsDead = false;
         spriteRenderer.gameObject.SetActive(true);
         MakeDynamicBodyType();
+    }
+
+    public void MakeDynamicBodyType()
+    {
+        characterRigidBody2D.bodyType = RigidbodyType2D.Dynamic;
     }
 }

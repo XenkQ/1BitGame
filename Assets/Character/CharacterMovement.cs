@@ -5,16 +5,16 @@ using UnityEngine;
 [RequireComponent(typeof(Character))]
 public class CharacterMovement : MonoBehaviour
 {
-    [Header("Movement Properites")]
+    [Header("Movement")]
     [SerializeField] private float speed = 8f;
     private float horizontal;
     private bool canMove = true;
     [HideInInspector] public bool CanMove { get; private set; } = true;
 
-    [Header("Animations")]
+    [Header("Animation")]
     private Animator animator;
 
-    [Header("Other Components")]
+    [Header("Other Objects")]
     [SerializeField] private Camera mainCamera;
 
     [Header("Other Scripts")]
@@ -54,6 +54,18 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    private void AnimationsControl()
+    {
+        if (Input.GetButton("Horizontal"))
+        {
+            animator.SetBool("Running", true);
+        }
+        else
+        {
+            animator.SetBool("Running", false);
+        }
+    }
+
     private void MovePlayer(float inputX)
     {
         character.characterRigidBody2D.velocity = new Vector3(inputX * speed, character.characterRigidBody2D.velocity.y);
@@ -73,17 +85,5 @@ public class CharacterMovement : MonoBehaviour
         character.MakeDynamicBodyType();
         animator.SetBool("Running", false);
         MovePlayer(0);
-    }
-
-    private void AnimationsControl()
-    {
-        if (Input.GetButton("Horizontal"))
-        {
-            animator.SetBool("Running", true);
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }
     }
 }

@@ -30,11 +30,6 @@ public class Timer : MonoBehaviour
         }
     }
 
-    private void SetStartTime()
-    {
-        startTime = time;
-    }
-
     private IEnumerator TimerProcess()
     {
         timeIsOn = true;
@@ -43,6 +38,11 @@ public class Timer : MonoBehaviour
         time--;
         timeIsSet = false;
         timeIsOn = false;
+    }
+
+    private void SetStartTime()
+    {
+        startTime = time;
     }
 
     public bool IsEndOfTime()
