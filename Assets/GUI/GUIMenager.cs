@@ -8,6 +8,6 @@ public class GUIMenager : MonoBehaviour
 
     public void DisableAllGUI()
     {
-        deathGUIMenager.DisableDeathGUI();
+        deathGUIMenager.DisableDeathGUIProcess();
     }
 }

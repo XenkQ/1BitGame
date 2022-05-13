@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 166267096}
   - component: {fileID: 7877440678572828220}
   m_Layer: 0
-  m_Name: TeleportToNewLvlPoint
+  m_Name: PlayerOutOfLvlPoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1555733748}
   m_Layer: 0
-  m_Name: PlayerToNewLvlSpawner
+  m_Name: NextLvlPlayerSpawner
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -13651,7 +13651,12 @@ MonoBehaviour:
   - {fileID: 2907537122617689143}
   - {fileID: 7684364319154059137}
   - {fileID: 8311959022656408550}
+  - {fileID: 8174314089627641575}
+  - {fileID: 3615643276567195369}
+  - {fileID: 2193419380988647767}
   timer: {fileID: 8913031814779237326}
+  nextLvlPlayerSpawner: {fileID: 7877440678572828220}
+  nextLvlStartPoint: {fileID: 4374230746787509543}
 --- !u!1 &2907537122617689143
 GameObject:
   m_ObjectHideFlags: 0
@@ -15148,7 +15153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d9fda623dfd134682e1ac556f046a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlNumber: 8
 --- !u!1 &4352025963362689064
 GameObject:
   m_ObjectHideFlags: 0
@@ -41028,7 +41032,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6940313042614599181, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
       propertyPath: time
-      value: 30
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}

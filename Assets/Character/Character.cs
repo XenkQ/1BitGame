@@ -24,6 +24,11 @@ public class Character : MonoBehaviour
         characterRigidBody2D = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        CharacterRestartProcess();
+    }
+
     private void Update()
     {
         CharacterDeathProcessIfIsDead();

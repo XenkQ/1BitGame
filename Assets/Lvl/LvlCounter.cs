@@ -6,9 +6,10 @@ using TMPro;
 public class LvlCounter : MonoBehaviour
 {
     private TextMeshPro counterText;
-    public int lvlNumber = 1;
+    private int lvlNumber = 1;
+    [HideInInspector] public int LvlNumber { get { return lvlNumber; } }
 
-    private void Start()
+    private void Awake()
     {
         counterText = GetComponent<TextMeshPro>();
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LvlMenager : MonoBehaviour
 {
@@ -10,71 +11,67 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private LvlCounter lvlCounter;
     [SerializeField] private Character character;
     [SerializeField] private CharacterMovement characterMovement;
-    [SerializeField] private NextLvlPlayerSpawner newLvlSpawner;
-    [SerializeField] private EnemySpawningSystem EnemySpawningSystem;
+    [SerializeField] private PlayerOutOfLvlPoint nextLvlSpawner;
+    [SerializeField] private EnemySpawningSystem enemySpawningSystem;
     [SerializeField] private EnemyVFXController enemyVFXController;
     [SerializeField] private TileMapsMenager tileMapsMenager;
     [SerializeField] private GUIMenager gUIMenager;
 
     [Header("Points")]
-    [SerializeField] private GameObject nextLvlStartPoint;
+    [SerializeField] private NextLvlStartPoint nextLvlStartPoint;
 
     private void Start()
     {
-        nextLvlStartPoint.SetActive(false);
+        UnpauseGameIfPaused();
+        nextLvlStartPoint.gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (newLvlSpawner.PlayerOutOfLvl())
-        {
-            timer.RestartTime();
-        }
-
-        if (newLvlSpawner.PlayerOutOfLvl() && timer.timeIsSet)
+        if (nextLvlSpawner.PlayerOutOfLvl())
         {
             MoveToNextLvlProcess();
         }
+        //if(nextLvlStartPoint.PlayerInNextLvlStartingPoint())
+        //{
+        //    StartNextLvlProcess();
+        //}
     }
 
     public void MoveToNextLvlProcess()
     {
-        tileMapsMenager.EnteringNewLvlTileMapActivation();
         lvlCounter.increaseLvlNumber();
         character.TeleportToNewLvlPoint();
         enemyVFXController.RestartAllVFXProcess();
-        nextLvlStartPoint.SetActive(true);
+        nextLvlStartPoint.gameObject.SetActive(true);
         tileMapsMenager.ChangeCurrentTileMapForRandomTileMapProcess();
+        timer.RestartTime();
     }
 
     public void StartNextLvlProcess()
     {
-        tileMapsMenager.StartNewLvlTileMapActivation();
+        tileMapsMenager.StartNextLvlTileMapActivation();
         characterMovement.ResetCharacterMovement();
-        nextLvlStartPoint.SetActive(false);
-        EnemySpawningSystem.OverrideSpawningSystemData();
+        nextLvlStartPoint.gameObject.SetActive(false);
+        enemySpawningSystem.OverrideSpawningSystemData();
     }
 
     public void RestartGameProcess()
     {
-        UnpauseGameIfPaused();
-        lvlCounter.RestartLvlNumber();
-        timer.RestartTime();
-        character.CharacterRestartProcess();
-        tileMapsMenager.ChangeCurrentTileMapForRandomTileMapProcess();
-        gUIMenager.DisableAllGUI();
+        SceneManager.LoadScene(0);
+        Debug.Log(character.IsDead + "|" + Time.timeScale + "|" + characterMovement.CanMove);
     }
 
     private void UnpauseGameIfPaused()
     {
-        if (Time.timeScale == 0)
+        if (CanUnpause())
         {
-            UnpauseGame();
+            Time.timeScale = 1;
         }
     }
 
-    private void UnpauseGame()
+    private bool CanUnpause()
     {
-        Time.timeScale = 1;
+        return Time.timeScale == 0;
     }
 }

@@ -9,7 +9,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float speed = 8f;
     private float horizontal;
     private bool canMove = true;
-    public bool CanMove { get; private set; } = true;
+    [HideInInspector] public bool CanMove { get; private set; } = true;
 
     [Header("Animations")]
     private Animator animator;
@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
     [Header("Other Scripts")]
     private Character character;
 
-    private void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         character = GetComponent<Character>();

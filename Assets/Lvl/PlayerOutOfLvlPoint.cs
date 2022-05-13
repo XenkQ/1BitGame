@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NextLvlPlayerSpawner : MonoBehaviour
+public class PlayerOutOfLvlPoint : MonoBehaviour
 {
     [SerializeField] Character character;
 

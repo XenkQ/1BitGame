@@ -9,24 +9,41 @@ public class TileMapsMenager : MonoBehaviour
     [SerializeField] private GameObject deafultTileMap;
     [SerializeField] private GameObject enterTileMap;
 
+    private bool isEndOfLvlTileMap = false;
+
     [Header("Obstacle Tile Maps")]
     [SerializeField] private GameObject[] tileMaps;
     private GameObject currentTileMap;
 
     [Header("Other Scripts")]
     [SerializeField] private Timer timer;
+    [SerializeField] private PlayerOutOfLvlPoint nextLvlPlayerSpawner;
+    [SerializeField] private NextLvlStartPoint nextLvlStartPoint;
 
     private void Awake()
     {
         ChangeCurrentTileMapForRandomTileMapProcess();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (timer.IsEndOfTime())
         {
             EndOfLvlTileMapActivation();
+            isEndOfLvlTileMap = true;
         }
+        if(nextLvlPlayerSpawner.PlayerOutOfLvl())
+        {
+            EnteringNextLvlTileMapActivation();
+        }
+        if (timer.TimeIsSet)
+        {
+            isEndOfLvlTileMap = false;
+        }
+        //if(nextLvlStartPoint.PlayerInNextLvlStartingPoint())
+        //{
+        //    StartNextLvlTileMapActivation();
+        //}
     }
 
     public void ChangeCurrentTileMapForRandomTileMapProcess()
@@ -65,20 +82,18 @@ public class TileMapsMenager : MonoBehaviour
 
     public void EndOfLvlTileMapActivation()
     {
-
         exitTileMap.SetActive(true);
         deafultTileMap.SetActive(false);
     }
 
-    public void EnteringNewLvlTileMapActivation()
+    public void EnteringNextLvlTileMapActivation()
     {
         exitTileMap.SetActive(false);
         enterTileMap.SetActive(true);
     }
 
-    public void StartNewLvlTileMapActivation()
+    public void StartNextLvlTileMapActivation()
     {
-
         enterTileMap.SetActive(false);
         deafultTileMap.SetActive(true);
     }

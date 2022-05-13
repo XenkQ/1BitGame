@@ -11,7 +11,6 @@ public class DeathGUIMenager : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log(character.IsDead);
         ActiveDeathGUIIFCharacterIsDead();
         StopGameTimeAfterDeathGUIActivation();
     }
@@ -32,25 +31,28 @@ public class DeathGUIMenager : MonoBehaviour
 
     private void StopGameTimeAfterDeathGUIActivation()
     {
-        try
+        if (deathGUI.active == true && Time.timeScale != 0)
         {
-            if (deathGUI.active == true && Time.timeScale != 0)
-            {
-                Time.timeScale = 0;
-            }
-        }
-        catch(Exception e)
-        {
-            this.gameObject.SetActive(false);
+            Time.timeScale = 0;
         }
     }
 
-    public void DisableDeathGUI()
+    public void DisableDeathGUIProcess()
     {
-        //TODO: null object reference
-        if(deathGUI.active == true)
+        DisableDeathGUI();
+        UnpauseTime();
+    }
+
+    private void DisableDeathGUI()
+    {
+        if (deathGUI.active == true)
         {
             deathGUI.SetActive(false);
         }
+    }
+
+    private void UnpauseTime()
+    {
+        Time.timeScale = 1;
     }
 }

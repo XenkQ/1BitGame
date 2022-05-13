@@ -12,7 +12,7 @@ public class EnemySpawningSystem : MonoBehaviour
     [SerializeField] private float spawnNextEnemyAfterSeconds;
     [SerializeField] private float secondWhenNextEnemyIsSpawned;
     [SerializeField] private int currentEnemyToSpawn;
-    [HideInInspector] public int CurrentEnemyToSpawn { get { return CurrentEnemyToSpawn; } }
+    [HideInInspector] public int CurrentEnemyToSpawn { get { return currentEnemyToSpawn; } }
 
     [Header("Stage Properites")]
     [SerializeField] private int maxEnemyNumberInOneLvl = 30;
@@ -57,7 +57,7 @@ public class EnemySpawningSystem : MonoBehaviour
     {
         if (!timer.IsEndOfTime() && currentEnemyToSpawn >= minEnemyIndex)
         {
-            return timer.time <= secondWhenNextEnemyIsSpawned;
+            return timer.Time <= secondWhenNextEnemyIsSpawned;
         }
         else { return false; }
     }
@@ -105,7 +105,7 @@ public class EnemySpawningSystem : MonoBehaviour
 
     private void AssignMaxNumberOfEnemiesInCurrentLvlBasedOnLvlNumber()
     {
-        maxNumberOfEnemiesInCurrentLvl = lvlCounter.lvlNumber;
+        maxNumberOfEnemiesInCurrentLvl = lvlCounter.LvlNumber;
     }
 
     private void AssignLastEnemyAsCurrentEnemy()
@@ -137,6 +137,17 @@ public class EnemySpawningSystem : MonoBehaviour
 
     private void AssignMaxAmmountOfEnemiesRelatedToLvlNumber()
     {
-        maxNumberOfEnemiesInCurrentLvl = lvlCounter.lvlNumber;
+        maxNumberOfEnemiesInCurrentLvl = lvlCounter.LvlNumber;
+    }
+
+    public void DisableAllEnemies()
+    {
+        foreach(Enemy enemy in enemies)
+        {
+            if(enemy.gameObject.active == true)
+            {
+                enemy.gameObject.SetActive(false);
+            }
+        }
     }
 }

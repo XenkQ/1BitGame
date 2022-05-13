@@ -10,9 +10,14 @@ public class NextLvlStartPoint : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (character.transform.position.x >= transform.position.x && timer.timeIsSet == false)
+        if (PlayerInNextLvlStartingPoint())
         {
             lvlMenager.StartNextLvlProcess();
         }
+    }
+
+    public bool PlayerInNextLvlStartingPoint()
+    {
+        return character.transform.position.x >= transform.position.x;
     }
 }
