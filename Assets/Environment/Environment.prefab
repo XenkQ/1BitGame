@@ -184,7 +184,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlMenager: {fileID: 0}
-  timer: {fileID: 8913031814779237326}
   character: {fileID: 0}
 --- !u!1 &1089374748
 GameObject:
@@ -15153,6 +15152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d9fda623dfd134682e1ac556f046a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxLvl: 30
+  lvlNumber: 1
 --- !u!1 &4352025963362689064
 GameObject:
   m_ObjectHideFlags: 0
@@ -41032,7 +41033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6940313042614599181, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
       propertyPath: time
-      value: 2
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}

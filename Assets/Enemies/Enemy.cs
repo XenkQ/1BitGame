@@ -106,13 +106,6 @@ public class Enemy : MonoBehaviour
 
     private bool CanDie()
     {
-        if (timer.IsEndOfTime())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return timer.IsEndOfTime();
     }
 }

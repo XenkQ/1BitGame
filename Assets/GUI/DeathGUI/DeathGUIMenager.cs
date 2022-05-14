@@ -9,10 +9,9 @@ public class DeathGUIMenager : MonoBehaviour
     [SerializeField] private GameObject deathGUI;
     [SerializeField] private float timeToDeathGuiActivation = 2f;
 
-    public void Update()
+    public void FixedUpdate()
     {
         ActiveDeathGUIIFCharacterIsDead();
-        StopGameTimeAfterDeathGUIActivation();
     }
 
     private void ActiveDeathGUIIFCharacterIsDead()
@@ -27,32 +26,5 @@ public class DeathGUIMenager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         deathGUI.SetActive(true);
-    }
-
-    private void StopGameTimeAfterDeathGUIActivation()
-    {
-        if (deathGUI.active == true && Time.timeScale != 0)
-        {
-            Time.timeScale = 0;
-        }
-    }
-
-    public void DisableDeathGUIProcess()
-    {
-        DisableDeathGUI();
-        UnpauseTime();
-    }
-
-    private void DisableDeathGUI()
-    {
-        if (deathGUI.active == true)
-        {
-            deathGUI.SetActive(false);
-        }
-    }
-
-    private void UnpauseTime()
-    {
-        Time.timeScale = 1;
     }
 }

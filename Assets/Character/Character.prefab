@@ -91,8 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6650043716017773249}
-  - component: {fileID: 6650043716017773262}
   - component: {fileID: 6608243893937603998}
+  - component: {fileID: 6650043716017773262}
   - component: {fileID: 6650043716017773248}
   - component: {fileID: 6650043716017773263}
   - component: {fileID: 987987725}
@@ -119,20 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6650043716017773262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6650043716017773250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0818a370721456846a14a15c8c5dd6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  mainCamera: {fileID: 0}
 --- !u!114 &6608243893937603998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +137,21 @@ MonoBehaviour:
   exitLvlPoint: {fileID: 0}
   transformYOffset: -4.54
   deathParticle: {fileID: 9068318469090503328}
+--- !u!114 &6650043716017773262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650043716017773250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0818a370721456846a14a15c8c5dd6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  mainCamera: {fileID: 0}
+  lvlCounter: {fileID: 0}
 --- !u!50 &6650043716017773248
 Rigidbody2D:
   serializedVersion: 4

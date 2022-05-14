@@ -32,10 +32,6 @@ public class LvlMenager : MonoBehaviour
         {
             MoveToNextLvlProcess();
         }
-        //if(nextLvlStartPoint.PlayerInNextLvlStartingPoint())
-        //{
-        //    StartNextLvlProcess();
-        //}
     }
 
     public void MoveToNextLvlProcess()
@@ -64,14 +60,6 @@ public class LvlMenager : MonoBehaviour
 
     private void UnpauseGameIfPaused()
     {
-        if (CanUnpause())
-        {
-            Time.timeScale = 1;
-        }
-    }
-
-    private bool CanUnpause()
-    {
-        return Time.timeScale == 0;
+        GameTimeMenager.UnpauseGameTime();
     }
 }

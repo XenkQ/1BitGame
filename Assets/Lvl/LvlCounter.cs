@@ -5,8 +5,9 @@ using TMPro;
 
 public class LvlCounter : MonoBehaviour
 {
+    [SerializeField] private int maxLvl = 30;
     private TextMeshPro counterText;
-    private int lvlNumber = 1;
+    [SerializeField] private int lvlNumber = 1;
     [HideInInspector] public int LvlNumber { get { return lvlNumber; } }
 
     private void Awake()
@@ -16,8 +17,16 @@ public class LvlCounter : MonoBehaviour
 
     public void increaseLvlNumber()
     {
-        lvlNumber++;
-        counterText.text = lvlNumber.ToString();
+        if(!IsEndOfLvls())
+        {
+            lvlNumber++;
+            counterText.text = lvlNumber.ToString();
+        }
+    }
+
+    public bool IsEndOfLvls()
+    {
+        return lvlNumber > maxLvl;
     }
 
     public void RestartLvlNumber()
@@ -25,4 +34,5 @@ public class LvlCounter : MonoBehaviour
         lvlNumber = 1;
         counterText.text = lvlNumber.ToString();
     }
+
 }
