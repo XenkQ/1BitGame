@@ -40,7 +40,7 @@ public class LvlMenager : MonoBehaviour
         character.TeleportToNewLvlPoint();
         enemyVFXController.RestartAllVFXProcess();
         nextLvlStartPoint.gameObject.SetActive(true);
-        tileMapsMenager.ChangeCurrentTileMapForRandomTileMapProcess();
+        tileMapsMenager.ChangeCurrentObstacleTileMapForRandomObstacleTileMapProcess();
         timer.RestartTime();
     }
 
@@ -55,7 +55,6 @@ public class LvlMenager : MonoBehaviour
     public void RestartGameProcess()
     {
         SceneManager.LoadScene(0);
-        Debug.Log(character.IsDead + "|" + Time.timeScale + "|" + characterMovement.CanMove);
     }
 
     private void UnpauseGameIfPaused()

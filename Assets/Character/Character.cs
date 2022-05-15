@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
 
     [Header("Physics")]
     [HideInInspector] public Rigidbody2D characterRigidBody2D;
+    private BoxCollider2D playerCollider;
 
     [Header("Character Spawn")]
     [SerializeField] private Transform newLvlSpawnPoint;
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour
     private void Awake()
     {
         characterRigidBody2D = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Start()
@@ -53,6 +55,7 @@ public class Character : MonoBehaviour
         {
             spriteRenderer.gameObject.SetActive(false);
             MakeKinematicBodyType();
+            playerCollider.enabled = false;
             deathParticle.Play();
         }
     }

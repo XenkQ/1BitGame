@@ -8,44 +8,56 @@ public class TileMapsMenager : MonoBehaviour
     [SerializeField] private GameObject exitTileMap;
     [SerializeField] private GameObject deafultTileMap;
     [SerializeField] private GameObject enterTileMap;
-    private bool isEndOfLvlTileMap = false;
 
     [Header("Obstacle Tile Maps")]
     [SerializeField] private GameObject[] tileMaps;
     private GameObject currentTileMap;
+    private bool firstObstacleMapAssigned = false;
 
     [Header("Other Scripts")]
     [SerializeField] private Timer timer;
     [SerializeField] private PlayerOutOfLvlPoint nextLvlPlayerSpawner;
     [SerializeField] private NextLvlStartPoint nextLvlStartPoint;
+    [SerializeField] private InLvlTextMenager inLvlTextMenager;
 
-    private void Awake()
+    private void Update()
     {
-        ChangeCurrentTileMapForRandomTileMapProcess();
+        AssignFirstRandomObstacleTileMapIfPressAnyKeyToStartIsDisable();
     }
 
     private void FixedUpdate()
     {
+        ActiveEndOfLvlTileMapIfIsEndOfTime();
+
+        ActiveEnteringNextLvlTileMapIfPlayerIsOutOfLvl();
+    }
+
+    private void ActiveEndOfLvlTileMapIfIsEndOfTime()
+    {
         if (timer.IsEndOfTime())
         {
             EndOfLvlTileMapActivation();
-            isEndOfLvlTileMap = true;
         }
-        if(nextLvlPlayerSpawner.PlayerOutOfLvl())
+    }
+
+    private void ActiveEnteringNextLvlTileMapIfPlayerIsOutOfLvl()
+    {
+        if (nextLvlPlayerSpawner.PlayerOutOfLvl())
         {
             EnteringNextLvlTileMapActivation();
         }
-        if (timer.TimeIsSet)
-        {
-            isEndOfLvlTileMap = false;
-        }
-        //if(nextLvlStartPoint.PlayerInNextLvlStartingPoint())
-        //{
-        //    StartNextLvlTileMapActivation();
-        //}
     }
 
-    public void ChangeCurrentTileMapForRandomTileMapProcess()
+    private void AssignFirstRandomObstacleTileMapIfPressAnyKeyToStartIsDisable()
+    {
+        if (!inLvlTextMenager.IsPressAnyKeyToStartActive() && firstObstacleMapAssigned == false)
+        {
+            ChangeCurrentObstacleTileMapForRandomObstacleTileMapProcess();
+            firstObstacleMapAssigned = true;
+        }
+    }
+
+    public void ChangeCurrentObstacleTileMapForRandomObstacleTileMapProcess()
     {
         if (currentTileMap != null)
         {
@@ -62,12 +74,12 @@ public class TileMapsMenager : MonoBehaviour
 
     private void ActivateRandomTileMap()
     {
-        GameObject tileMap = RandomTileMap();
+        GameObject tileMap = GetRandomObstacleTileMap();
         tileMap.SetActive(true);
         currentTileMap = tileMap;
     }
 
-    private GameObject RandomTileMap()
+    private GameObject GetRandomObstacleTileMap()
     {
         GameObject tileMap;
 
