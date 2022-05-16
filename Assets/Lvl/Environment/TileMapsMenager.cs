@@ -26,8 +26,6 @@ public class TileMapsMenager : MonoBehaviour
     private void FixedUpdate()
     {
         ActiveEndOfLvlTileMapIfIsEndOfTime();
-
-        ActiveEnteringNextLvlTileMapIfPlayerIsOutOfLvl();
     }
 
     private void ActiveEndOfLvlTileMapIfIsEndOfTime()
@@ -35,14 +33,6 @@ public class TileMapsMenager : MonoBehaviour
         if (timer.IsEndOfTime())
         {
             EndOfLvlTileMapActivation();
-        }
-    }
-
-    private void ActiveEnteringNextLvlTileMapIfPlayerIsOutOfLvl()
-    {
-        if (nextLvlPlayerSpawner.PlayerOutOfLvl())
-        {
-            EnteringNextLvlTileMapActivation();
         }
     }
 

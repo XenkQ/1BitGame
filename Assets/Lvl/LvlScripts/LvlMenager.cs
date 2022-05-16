@@ -44,6 +44,7 @@ public class LvlMenager : MonoBehaviour
         character.TeleportToNewLvlPoint();
         enemyVFXController.RestartAllVFXProcess();
         nextLvlStartPoint.gameObject.SetActive(true);
+        tileMapsMenager.EnteringNextLvlTileMapActivation();
         tileMapsMenager.ChangeCurrentObstacleTileMapForRandomObstacleTileMapProcess();
         timer.RestartTime();
     }
