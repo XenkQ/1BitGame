@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class LvlMenager : MonoBehaviour
 {
@@ -28,7 +27,12 @@ public class LvlMenager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (nextLvlSpawner.PlayerOutOfLvl())
+        MoveToNextLvlIfPlayerIsOutOfLvl();
+    }
+
+    private void MoveToNextLvlIfPlayerIsOutOfLvl()
+    {
+        if (nextLvlSpawner.PlayerOutOfLvl() && timer.IsEndOfTime())
         {
             MoveToNextLvlProcess();
         }

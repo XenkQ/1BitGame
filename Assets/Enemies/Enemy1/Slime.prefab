@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10000
   velocityMagnitude: 0
+  bounceFactor: 10
 --- !u!70 &343179945
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

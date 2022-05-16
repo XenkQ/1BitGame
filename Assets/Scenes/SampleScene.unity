@@ -801,6 +801,10 @@ PrefabInstance:
       propertyPath: lvlMenager
       value: 
       objectReference: {fileID: 860748899}
+    - target: {fileID: 5379778346047316373, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: lvlNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7267590514062548493, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: inLvlTextMenager
       value: 
@@ -809,6 +813,10 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 1775529104}
+    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: time
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
 --- !u!114 &2647200195053064307 stripped
