@@ -370,6 +370,8 @@ MonoBehaviour:
   tileMapsMenager: {fileID: 565958629}
   gUIMenager: {fileID: 1050004335}
   nextLvlStartPoint: {fileID: 66637282}
+  soundMenager: {fileID: 2647200195053064309}
+  endOfLvlSound: {fileID: 8300000, guid: c2188fee0af068d429b9d81629f170a2, type: 3}
 --- !u!4 &860748900
 Transform:
   m_ObjectHideFlags: 0
@@ -404,17 +406,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7725728c1b66d1a45944180ccc663b07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1308065917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7955842290612782012, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3ce1dda6951e447bbc686507bf6ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1451606845 stripped
@@ -710,26 +701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63ce4f304cb4e246aa9de63aa63c794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1843073844 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8784309656286655404, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-  m_PrefabInstance: {fileID: 2647200195053064306}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1843073846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1843073844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 209aca1f36cf40e48813a6a68dc989aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 2647200195053064307}
-  lvlCounter: {fileID: 1513701281}
-  pressAnyKeyToStart: {fileID: 1308065917}
 --- !u!1001 &2647200195053064306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -801,22 +772,10 @@ PrefabInstance:
       propertyPath: lvlMenager
       value: 
       objectReference: {fileID: 860748899}
-    - target: {fileID: 5379778346047316373, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: lvlNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7267590514062548493, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: inLvlTextMenager
-      value: 
-      objectReference: {fileID: 1843073846}
     - target: {fileID: 7877440678572828220, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1775529104}
-    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: time
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
 --- !u!114 &2647200195053064307 stripped
@@ -828,6 +787,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d09707c7151bf54cac8fca56bcc35b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2647200195053064309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2647200195053064309, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+  m_PrefabInstance: {fileID: 2647200195053064306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c5a303aed1e734b8e3ff2efa1a47fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4505536624660442606
@@ -955,6 +925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 166267096}
     - target: {fileID: 6608243893937603998, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
+      propertyPath: soundMenager
+      value: 
+      objectReference: {fileID: 2647200195053064309}
+    - target: {fileID: 6608243893937603998, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
       propertyPath: newLvlSpawnPoint
       value: 
       objectReference: {fileID: 1555733748}
@@ -1006,10 +980,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 6650043716017773262, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
-      propertyPath: lvlCounter
-      value: 
-      objectReference: {fileID: 1513701281}
     - target: {fileID: 6650043716017773262, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
       propertyPath: mainCamera
       value: 

@@ -9,6 +9,7 @@ TagManager:
   - VFXSpawner
   - EnemySpawner
   - Enemy
+  - SoundMenager
   layers:
   - Default
   - TransparentFX

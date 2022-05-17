@@ -17,6 +17,10 @@ public class Character : MonoBehaviour
     [SerializeField] private ParticleSystem deathParticle;
     [HideInInspector] public bool IsDead { get; private set; } = false;
 
+    [Header("Sounds")]
+    [SerializeField] private SoundMenager soundMenager;
+    [SerializeField] private AudioClip deathSound;
+
 
     private void Awake()
     {
@@ -51,16 +55,32 @@ public class Character : MonoBehaviour
     {
         if(IsDead && spriteRenderer.gameObject.active != false)
         {
-            spriteRenderer.gameObject.SetActive(false);
+            DisablePlayerSprite();
             MakeKinematicBodyType();
-            playerCollider.enabled = false;
+            DisableCharacterCollision();
             deathParticle.Play();
+            PlayDeathSound();
         }
+    }
+
+    private void DisablePlayerSprite()
+    {
+        spriteRenderer.gameObject.SetActive(false);
     }
 
     public void MakeKinematicBodyType()
     {
         characterRigidBody2D.bodyType = RigidbodyType2D.Kinematic;
+    }
+
+    private void DisableCharacterCollision()
+    {
+        playerCollider.enabled = false;
+    }
+
+    private void PlayDeathSound()
+    {
+        soundMenager.PlaySound(deathSound);
     }
 
     public void CharacterRestartProcess()

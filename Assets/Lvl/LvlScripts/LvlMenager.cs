@@ -19,6 +19,11 @@ public class LvlMenager : MonoBehaviour
     [Header("Points")]
     [SerializeField] private NextLvlStartPoint nextLvlStartPoint;
 
+    [Header("Sounds")]
+    [SerializeField] private SoundMenager soundMenager;
+    [SerializeField] private AudioClip endOfLvlSound;
+    private bool endOfSoundWasPlayed = false;
+
     private void Start()
     {
         UnpauseGameIfPaused();
@@ -28,6 +33,7 @@ public class LvlMenager : MonoBehaviour
     private void FixedUpdate()
     {
         MoveToNextLvlIfPlayerIsOutOfLvl();
+        PlayEndOfLvlSoundIfEndOfLvl();
     }
 
     private void MoveToNextLvlIfPlayerIsOutOfLvl()
@@ -36,6 +42,20 @@ public class LvlMenager : MonoBehaviour
         {
             MoveToNextLvlProcess();
         }
+    }
+
+    private void PlayEndOfLvlSoundIfEndOfLvl()
+    {
+        if (CanPlayEndOfLvlSound())
+        {
+            soundMenager.PlaySound(endOfLvlSound);
+            endOfSoundWasPlayed = true;
+        }
+    }
+
+    private bool CanPlayEndOfLvlSound()
+    {
+        return timer.IsEndOfTime() && endOfSoundWasPlayed == false;
     }
 
     public void MoveToNextLvlProcess()
@@ -47,6 +67,7 @@ public class LvlMenager : MonoBehaviour
         tileMapsMenager.EnteringNextLvlTileMapActivation();
         tileMapsMenager.ChangeCurrentObstacleTileMapForRandomObstacleTileMapProcess();
         timer.RestartTime();
+        endOfSoundWasPlayed = false;
     }
 
     public void StartNextLvlProcess()

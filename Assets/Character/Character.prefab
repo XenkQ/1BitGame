@@ -137,6 +137,8 @@ MonoBehaviour:
   exitLvlPoint: {fileID: 0}
   transformYOffset: -4.54
   deathParticle: {fileID: 9068318469090503328}
+  soundMenager: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: af0341d1776da754aad7a2853e371c8c, type: 3}
 --- !u!114 &6650043716017773262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   mainCamera: {fileID: 0}
-  lvlCounter: {fileID: 0}
 --- !u!50 &6650043716017773248
 Rigidbody2D:
   serializedVersion: 4
