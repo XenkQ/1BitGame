@@ -5,6 +5,7 @@ using TMPro;
 [RequireComponent(typeof(TMP_Text))]
 public class Timer : MonoBehaviour
 {
+    [Header("Time")]
     [SerializeField] private int time;
     [HideInInspector] public int Time { get { return time; } }
 
@@ -14,6 +15,11 @@ public class Timer : MonoBehaviour
     [HideInInspector] public bool TimeIsSet { get { return timeIsSet; } }
     private TMP_Text timerText;
     private bool timeIsOn = false;
+
+    [Header("Sound")]
+    [SerializeField] private SoundMenager soundMenager;
+    [SerializeField] private AudioClip[] clockAudioClips;
+    private int currentClockSoundIndex = 0;
 
     private void Awake()
     {
@@ -35,8 +41,18 @@ public class Timer : MonoBehaviour
         timerText.text = time.ToString();
         yield return new WaitForSeconds(1f);
         time--;
+        PlayClockSound();
         timeIsSet = false;
         timeIsOn = false;
+    }
+
+    private void PlayClockSound()
+    {
+        if (!IsEndOfTime())
+        {
+            soundMenager.PlaySound(clockAudioClips[currentClockSoundIndex]);
+            currentClockSoundIndex = currentClockSoundIndex + 1 <= 1 ? 1 : 0;
+        }
     }
 
     private void SetStartTime()

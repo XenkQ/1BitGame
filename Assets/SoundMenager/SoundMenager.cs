@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SoundMenager : MonoBehaviour
 {
+    [SerializeField] [Range(0,1f)] private float soundVolume = 0.90f;
     private AudioSource audioSource;
 
     private void Awake()
@@ -13,7 +14,7 @@ public class SoundMenager : MonoBehaviour
 
     public void PlaySound(AudioClip audioClip)
     {
-        audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(audioClip, soundVolume);
     }
 
     public void StopAllSounds()
