@@ -712,14 +712,14 @@ PrefabInstance:
       propertyPath: characterMovement
       value: 
       objectReference: {fileID: 912483750}
+    - target: {fileID: 2193419380988647767, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2647200194590521189, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_TileAssetArray.Array.data[1].m_Data
       value: 
       objectReference: {fileID: 1531111980}
-    - target: {fileID: 2647200195053064309, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: soundVolume
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 2647200195307898556, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_Name
       value: Environment
@@ -776,34 +776,22 @@ PrefabInstance:
       propertyPath: lvlMenager
       value: 
       objectReference: {fileID: 860748899}
-    - target: {fileID: 5379778346047316373, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: lvlNumber
-      value: 1
+    - target: {fileID: 4379298891955977704, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6209167660023926187, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372643604742456423, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7877440678572828220, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1775529104}
-    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: time
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: soundMenager
-      value: 
-      objectReference: {fileID: 2647200195053064309}
-    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: clockAudioClips.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: clockAudioClips.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 15bb38a2c65201942b8aa391929631d8, type: 3}
-    - target: {fileID: 8913031814779237326, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: clockAudioClips.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 1fe0272000a8bb344a60920f91482fa8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
 --- !u!114 &2647200195053064307 stripped
