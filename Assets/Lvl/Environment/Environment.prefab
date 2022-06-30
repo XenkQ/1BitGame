@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d569c007c6fb7b54cb47922681867fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvlMenager: {fileID: 0}
+  lvlManager: {fileID: 0}
   character: {fileID: 0}
 --- !u!1 &1089374748
 GameObject:
@@ -14406,7 +14406,7 @@ MonoBehaviour:
   timer: {fileID: 8913031814779237326}
   nextLvlPlayerSpawner: {fileID: 7877440678572828220}
   nextLvlStartPoint: {fileID: 4374230746787509543}
-  inLvlTextMenager: {fileID: 1843073846}
+  inLvlTextManager: {fileID: 1843073846}
 --- !u!1 &2907537122617689143
 GameObject:
   m_ObjectHideFlags: 0
@@ -43020,6 +43020,10 @@ PrefabInstance:
       propertyPath: time
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6940313042614599181, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 2647200195053064309}
     - target: {fileID: 6940313042614599181, guid: 1d427e08e05773d498d98c0b3b94c746, type: 3}
       propertyPath: soundMenager
       value: 

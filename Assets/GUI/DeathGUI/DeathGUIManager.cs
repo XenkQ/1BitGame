@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class DeathGUIMenager : MonoBehaviour
+public class DeathGUIManager : MonoBehaviour
 {
     [SerializeField] private Character character;
     [SerializeField] private GameObject deathGUI;

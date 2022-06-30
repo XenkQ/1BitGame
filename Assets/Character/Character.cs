@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool IsDead { get; private set; } = false;
 
     [Header("Sounds")]
-    [SerializeField] private SoundMenager soundMenager;
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip deathSound;
 
 
@@ -80,7 +80,7 @@ public class Character : MonoBehaviour
 
     private void PlayDeathSound()
     {
-        soundMenager.PlaySound(deathSound);
+        soundManager.PlaySound(deathSound);
     }
 
     public void CharacterRestartProcess()

@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     private bool timeIsOn = false;
 
     [Header("Sound")]
-    [SerializeField] private SoundMenager soundMenager;
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip[] clockAudioClips;
     private int currentClockSoundIndex = 0;
 
@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour
     {
         if (!IsEndOfTime())
         {
-            soundMenager.PlaySound(clockAudioClips[currentClockSoundIndex]);
+            soundManager.PlaySound(clockAudioClips[currentClockSoundIndex]);
             currentClockSoundIndex = currentClockSoundIndex + 1 <= 1 ? 1 : 0;
         }
     }

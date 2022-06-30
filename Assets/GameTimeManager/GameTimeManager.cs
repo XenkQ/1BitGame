@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameTimeMenager
+public static class GameTimeManager
 {
     public static void PauseGameTime()
     {

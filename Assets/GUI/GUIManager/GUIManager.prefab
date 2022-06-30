@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4505536625105708672}
   - component: {fileID: 4505536625105708702}
   m_Layer: 5
-  m_Name: GUIMenager
+  m_Name: GUIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7725728c1b66d1a45944180ccc663b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gUIObjects:
+  GUIObjects:
   - {fileID: 4505536624481429378}
   - {fileID: 4505536625040664270}
 --- !u!114 &4505536625105708672

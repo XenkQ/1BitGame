@@ -24,7 +24,7 @@ public class PressAnyKeyToStart : MonoBehaviour
         if (displayPressAnyKeyTextOnStart)
         {
             pressAnyKeyToStartText.text = "PRESS ANY KEY TO START";
-            GameTimeMenager.PauseGameTime();
+            GameTimeManager.PauseGameTime();
         }
         else
         {
@@ -37,7 +37,7 @@ public class PressAnyKeyToStart : MonoBehaviour
         if (Input.anyKey)
         {
             displayPressAnyKeyTextOnStart = false;
-            GameTimeMenager.UnpauseGameTime();
+            GameTimeManager.UnpauseGameTime();
             gameObject.SetActive(false);
         }
     }

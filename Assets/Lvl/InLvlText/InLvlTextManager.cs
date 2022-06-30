@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InLvlTextMenager : MonoBehaviour
+public class InLvlTextManager : MonoBehaviour
 {
     [SerializeField] private Timer timer;
     [SerializeField] private LvlCounter lvlCounter;

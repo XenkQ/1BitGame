@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TileMapsMenager : MonoBehaviour
+public class TileMapsManager : MonoBehaviour
 {
     [Header("Deafult Tile Maps")]
     [SerializeField] private GameObject exitTileMap;
@@ -16,7 +16,7 @@ public class TileMapsMenager : MonoBehaviour
     [SerializeField] private Timer timer;
     [SerializeField] private PlayerOutOfLvlPoint nextLvlPlayerSpawner;
     [SerializeField] private NextLvlStartPoint nextLvlStartPoint;
-    [SerializeField] private InLvlTextMenager inLvlTextMenager;
+    [SerializeField] private InLvlTextManager inLvlTextManager;
 
     private void Update()
     {
@@ -38,7 +38,7 @@ public class TileMapsMenager : MonoBehaviour
 
     private void AssignFirstRandomObstacleTileMapIfPressAnyKeyToStartIsDisable()
     {
-        if (!inLvlTextMenager.IsPressAnyKeyToStartActive() && firstObstacleMapAssigned == false)
+        if (!inLvlTextManager.IsPressAnyKeyToStartActive() && firstObstacleMapAssigned == false)
         {
             ChangeCurrentObstacleTileMapForRandomObstacleTileMapProcess();
             firstObstacleMapAssigned = true;

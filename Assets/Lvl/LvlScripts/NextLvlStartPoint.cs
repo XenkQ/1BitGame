@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class NextLvlStartPoint : MonoBehaviour
 {
-    [SerializeField] private LvlMenager lvlMenager;
+    [SerializeField] private LvlManager lvlManager;
     [SerializeField] private Character character;
 
     private void FixedUpdate()
     {
         if (PlayerInNextLvlStartingPoint())
         {
-            lvlMenager.StartNextLvlProcess();
+            lvlManager.StartNextLvlProcess();
         }
     }
 

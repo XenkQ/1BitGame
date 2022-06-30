@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 860748900}
   - component: {fileID: 860748899}
   m_Layer: 0
-  m_Name: LvlMenager
+  m_Name: LvlManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -368,9 +368,8 @@ MonoBehaviour:
   enemySpawningSystem: {fileID: 1517478679}
   enemyVFXController: {fileID: 1451606845}
   tileMapsMenager: {fileID: 565958629}
-  gUIMenager: {fileID: 1050004335}
   nextLvlStartPoint: {fileID: 66637282}
-  soundMenager: {fileID: 2647200195053064309}
+  soundManager: {fileID: 2647200195053064309}
   endOfLvlSound: {fileID: 8300000, guid: c2188fee0af068d429b9d81629f170a2, type: 3}
 --- !u!4 &860748900
 Transform:
@@ -395,17 +394,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0818a370721456846a14a15c8c5dd6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1050004335 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4505536625105708673, guid: e601834c9da7f684a874ac2c3367a665, type: 3}
-  m_PrefabInstance: {fileID: 4505536624660442606}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7725728c1b66d1a45944180ccc663b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1451606845 stripped
@@ -712,10 +700,6 @@ PrefabInstance:
       propertyPath: characterMovement
       value: 
       objectReference: {fileID: 912483750}
-    - target: {fileID: 2193419380988647767, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2647200194590521189, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: m_TileAssetArray.Array.data[1].m_Data
       value: 
@@ -773,21 +757,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1775529104}
     - target: {fileID: 4374230746787509543, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: lvlMenager
+      propertyPath: lvlManager
       value: 
       objectReference: {fileID: 860748899}
-    - target: {fileID: 4379298891955977704, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6209167660023926187, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6372643604742456423, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7877440678572828220, guid: e24dc81852eaf834f8cdae500445b00a, type: 3}
       propertyPath: character
       value: 
@@ -941,7 +913,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 166267096}
     - target: {fileID: 6608243893937603998, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
-      propertyPath: soundMenager
+      propertyPath: soundManager
       value: 
       objectReference: {fileID: 2647200195053064309}
     - target: {fileID: 6608243893937603998, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
@@ -997,16 +969,8 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 6650043716017773262, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
-      propertyPath: walkSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 7f4e6e1efe50d17449bfc4db1a5ea55a, type: 3}
-    - target: {fileID: 6650043716017773262, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6650043716017773262, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}
-      propertyPath: soundMenager
-      value: 
-      objectReference: {fileID: 2647200195053064309}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16bbc6bb0e3b03c418034d4de81eeb9c, type: 3}

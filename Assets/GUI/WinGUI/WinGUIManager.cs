@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WinGUIMenager : MonoBehaviour
+public class WinGUIManager : MonoBehaviour
 {
     [SerializeField] private LvlCounter lvlCounter;
     [SerializeField] private GameObject winGUI;

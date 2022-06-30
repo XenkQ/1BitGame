@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LvlMenager : MonoBehaviour
+public class LvlManager : MonoBehaviour
 {
     [Header("Scripts")]
     [SerializeField] private Timer timer;
@@ -13,14 +13,13 @@ public class LvlMenager : MonoBehaviour
     [SerializeField] private PlayerOutOfLvlPoint nextLvlSpawner;
     [SerializeField] private EnemySpawningSystem enemySpawningSystem;
     [SerializeField] private EnemyVFXController enemyVFXController;
-    [SerializeField] private TileMapsMenager tileMapsMenager;
-    [SerializeField] private GUIMenager gUIMenager;
+    [SerializeField] private TileMapsManager tileMapsMenager;
 
     [Header("Points")]
     [SerializeField] private NextLvlStartPoint nextLvlStartPoint;
 
     [Header("Sounds")]
-    [SerializeField] private SoundMenager soundMenager;
+    [SerializeField] private SoundManager soundManager;
     [SerializeField] private AudioClip endOfLvlSound;
     private bool endOfSoundWasPlayed = false;
 
@@ -48,7 +47,7 @@ public class LvlMenager : MonoBehaviour
     {
         if (CanPlayEndOfLvlSound())
         {
-            soundMenager.PlaySound(endOfLvlSound);
+            soundManager.PlaySound(endOfLvlSound);
             endOfSoundWasPlayed = true;
         }
     }
@@ -85,6 +84,6 @@ public class LvlMenager : MonoBehaviour
 
     private void UnpauseGameIfPaused()
     {
-        GameTimeMenager.UnpauseGameTime();
+        GameTimeManager.UnpauseGameTime();
     }
 }
